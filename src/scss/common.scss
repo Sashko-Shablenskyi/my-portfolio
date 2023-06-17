@@ -1,0 +1,9 @@
+// Заголовки, загальні БЕМ блоки та інше...
+.btn {
+  background-color: var(--accent);
+  border-radius: rem(30);
+  color: var(--primary);
+  font-weight: 500;
+  padding: rem(20);
+  width: rem(203);
+}

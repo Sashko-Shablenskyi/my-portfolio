@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  @@include('html/_head.htm',{ "title":"Sashko Shablenskyi" })
+  <body>
+    <div class="wrapper">
+      @@include('html/_header.htm',{})
+      <main class="page">
+        <section class="intro">
+          <div class="intro__container">
+            <div class="intro__inner">
+              <div class="intro__left">
+                <div class="intro__label">hi, my name is</div>
+                <h1 class="intro__title">
+                  Sashko Shablenskyi <br />
+                  <span>I'm Front-End Developer</span>
+                </h1>
+
+                <div class="intro__btns">
+                  <button class="btn">Download CV</button>
+                  <button class="btn">Portfolio</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="about"></section>
+      </main>
+      @@include('html/_footer.htm',{})
+    </div>
+    @@include('html/_js.htm',{})
+  </body>
+</html>

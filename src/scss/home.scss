@@ -1,0 +1,56 @@
+//====================================================================================================
+// INTRO //
+
+.intro {
+  margin: rem(88) 0 0;
+  &__container {
+    max-width: rem(1390);
+  }
+  &__inner {
+    min-height: rem(580);
+    background-color: var(--primary);
+    border-radius: rem(40);
+    border-top-right-radius: 0;
+
+    &--scrolled {
+      border-top-right-radius: rem(40);
+    }
+  }
+
+  &__left {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding-top: rem(117);
+    padding-left: rem(40);
+  }
+
+  &__label {
+    font-weight: 500;
+    line-height: rem(22);
+    text-transform: uppercase;
+  }
+
+  &__title {
+    font-weight: 600;
+    font-size: rem(56);
+    line-height: math.div(70, 64);
+    text-transform: uppercase;
+    color: var(--accent);
+
+    span {
+      font-size: rem(38);
+      color: var(--text-primary);
+    }
+  }
+
+  &__btns {
+    flex: 1 1 auto;
+  }
+}
+
+//====================================================================================================
+// ABOUT //
+.about {
+  height: 1000px;
+}
