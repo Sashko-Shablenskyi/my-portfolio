@@ -4,6 +4,38 @@
   border-radius: rem(30);
   color: var(--primary);
   font-weight: 500;
-  padding: rem(20);
+  padding: rem(15) rem(20);
   width: rem(203);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &--transparent {
+    background-color: transparent;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+  }
+
+  &--inverse {
+    background-color: var(--primary);
+    color: var(--accent);
+  }
+}
+
+//========================================================================================================================================================
+
+.title {
+  position: relative;
+  text-transform: uppercase;
+  text-align: center;
+  @include adaptiveValue('font-size', 40, 24);
+  line-height: math.div(70, 40);
+  font-weight: 600;
+  padding-top: rem(20);
+  background: url('../img/title_decore.svg') center top/auto no-repeat;
+
+  &--inverse {
+    color: var(--text-inverse);
+    background-image: url('../img/title_decore_dark.svg');
+  }
 }

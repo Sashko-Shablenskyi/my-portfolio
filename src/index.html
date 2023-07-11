@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
   @@include('html/_head.htm',{ "title":"Sashko Shablenskyi" })
+
+  <head>
+    <title>@@title</title>
+  </head>
   <body>
     <div class="wrapper">
       @@include('html/_header.htm',{})
@@ -16,15 +20,359 @@
                 </h1>
 
                 <div class="intro__btns">
-                  <button class="btn">Download CV</button>
-                  <button class="btn">Portfolio</button>
+                  <a class="btn" href="#">Download CV</a>
+                  <a
+                    class="btn btn--transparent"
+                    href="#"
+                    data-goto-header
+                    data-goto-speed="750"
+                    data-goto=".portfolio"
+                  >
+                    Portfolio
+                  </a>
+                </div>
+              </div>
+
+              <div class="intro__img">
+                <img
+                  src="../img/intro/sashko_shablenskyi.png"
+                  alt="sashko_shablenskyi"
+                />
+
+                <div class="decore">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="decore__arch">
+                    <defs>
+                      <linearGradient
+                        id="borderGradient"
+                        gradientTransform="rotate(90)"
+                      >
+                        <stop offset="0%" stop-color="#000" stop-opacity="1" />
+                        <stop offset="80%" stop-color="#000" stop-opacity="0" />
+                      </linearGradient>
+                    </defs>
+                    <circle
+                      cx="50%"
+                      cy="50%"
+                      r="45%"
+                      fill="none"
+                      stroke="url(#borderGradient)"
+                      stroke-width="3"
+                    />
+                    <circle cx="86%" cy="25%" r="15" fill="#000" />
+                    <circle cx="90.3%" cy="35%" r="10" fill="#000" />
+                  </svg>
+
+                  <a
+                    href="#"
+                    data-goto-header
+                    data-goto-speed="750"
+                    data-goto=".contacts"
+                    class="decore__circle"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="140"
+                      height="140"
+                    >
+                      <circle cx="70" cy="70" r="65" fill="#000" />
+                      <circle cx="70" cy="70" r="7" fill="#4646b6" />
+                      <path
+                        id="innerCircle"
+                        d="M70 20 A 50 50 0 0 1 70 120 A 50 50 0 0 1 70 20"
+                        fill="none"
+                      >
+                        <animateTransform
+                          attributeName="transform"
+                          attributeType="XML"
+                          type="rotate"
+                          from="0 70 70"
+                          to="-360 70 70"
+                          dur="15s"
+                          repeatCount="indefinite"
+                        />
+                      </path>
+                      <text font-size="14px" fill="white">
+                        <textPath
+                          xlink:href="#innerCircle"
+                          startOffset="50%"
+                          textLength="310"
+                          lengthAdjust="spacingAndGlyphs"
+                        >
+                          <tspan dy="6" text-anchor="middle">
+                            Let's start cooperation | Let's start cooperation |
+                          </tspan>
+                        </textPath>
+                        <animateTransform
+                          attributeName="transform"
+                          attributeType="XML"
+                          type="rotate"
+                          from="0 70 70"
+                          to="-360 70 70"
+                          dur="15s"
+                          repeatCount="indefinite"
+                        />
+                      </text>
+                    </svg>
+                  </a>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        <section class="about"></section>
+        <section class="about">
+          <div class="about__container">
+            <div class="about__right">
+              <h2 class="title about__title"> About Me </h2>
+            </div>
+          </div>
+        </section>
+
+        <section class="portfolio">
+          <div class="portfolio__container">
+            <div class="portfoliot__right">
+              <h2 class="title portfolio__title"> Portfolio </h2>
+
+              <div class="portfolio__wrapper">
+                <a
+                  class="portfolio__project project"
+                  href="#"
+                  target="_blank"
+                  style="
+                    background: url('../img/portfolio/Rectangle.jpg') center
+                      center/cover no-repeat;
+                  "
+                >
+                  <div class="project__hover">
+                    <div class="project__title">Project 1</div>
+                    <div class="project__descr">
+                      Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                    </div>
+                  </div>
+                </a>
+
+                <a
+                  class="portfolio__project project"
+                  href="#"
+                  target="_blank"
+                  style="
+                    background: url('../img/portfolio/Rectangle.jpg') center
+                      center/cover no-repeat;
+                  "
+                >
+                  <div class="project__hover">
+                    <div class="project__title">Project 2</div>
+                    <div class="project__descr">
+                      Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                    </div>
+                  </div>
+                </a>
+
+                <a
+                  class="portfolio__project project"
+                  href="#"
+                  target="_blank"
+                  style="
+                    background: url('../img/portfolio/Rectangle.jpg') center
+                      center/cover no-repeat;
+                  "
+                >
+                  <div class="project__hover">
+                    <div class="project__title">Project 3</div>
+                    <div class="project__descr">
+                      Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                    </div>
+                  </div>
+                </a>
+
+                <a
+                  class="portfolio__project project"
+                  href="#"
+                  target="_blank"
+                  style="
+                    background: url('../img/portfolio/Rectangle.jpg') center
+                      center/cover no-repeat;
+                  "
+                >
+                  <div class="project__hover">
+                    <div class="project__title">Project 4</div>
+                    <div class="project__descr">
+                      Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                    </div>
+                  </div>
+                </a>
+
+                <a
+                  class="portfolio__project project"
+                  href="#"
+                  target="_blank"
+                  style="
+                    background: url('../img/portfolio/Rectangle.jpg') center
+                      center/cover no-repeat;
+                  "
+                >
+                  <div class="project__hover">
+                    <div class="project__title">Project 5</div>
+                    <div class="project__descr">
+                      Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                    </div>
+                  </div>
+                </a>
+
+                <a
+                  class="portfolio__project project"
+                  href="#"
+                  target="_blank"
+                  style="
+                    background: url('../img/portfolio/Rectangle.jpg') center
+                      center/cover no-repeat;
+                  "
+                >
+                  <div class="project__hover">
+                    <div class="project__title">Project 6</div>
+                    <div class="project__descr">
+                      Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                    </div>
+                  </div>
+                </a>
+
+                <a
+                  class="portfolio__project project"
+                  href="#"
+                  target="_blank"
+                  style="
+                    background: url('../img/portfolio/Rectangle.jpg') center
+                      center/cover no-repeat;
+                  "
+                >
+                  <div class="project__hover">
+                    <div class="project__title">Project 7</div>
+                    <div class="project__descr">
+                      Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                    </div>
+                  </div>
+                </a>
+              </div>
+
+              <a class="btn btn--transparent portfolio__btn" href="#"
+                >Show more</a
+              >
+            </div>
+          </div>
+        </section>
+
+        <section class="statistic">
+          <div class="statistic__container">
+            <h2 class="title title--inverse">freelancehunt statistic</h2>
+
+            <div class="statistic__body">
+              <div class="statistic__loader"> </div>
+            </div>
+          </div>
+
+          <a
+            class="btn btn--inverse statistic__btn"
+            href="https://freelancehunt.com/freelancer/sashko_sh.html"
+            target="_blank"
+          >
+            View profile
+          </a>
+        </section>
+
+        <section class="experience">
+          <div class="experience__container">
+            <h2 class="title experiance__title"> Skills & work experience </h2>
+
+            <div class="experience__skills skills">
+              <div class="skills__box">
+                <div class="skills__img">
+                  <img src="../img/skills/HTML5.png" alt="HTML5" />
+                </div>
+                <div class="skills__title">HTML5</div>
+              </div>
+              <div class="skills__box">
+                <div class="skills__img"
+                  ><img src="../img/skills/CSS3.png" alt="CSS3"
+                /></div>
+                <div class="skills__title">CSS3</div>
+              </div>
+              <div class="skills__box">
+                <div class="skills__img"
+                  ><img src="../img/skills/JS.png" alt="JS"
+                /></div>
+                <div class="skills__title">JS (ES6)</div>
+              </div>
+              <div class="skills__box">
+                <div class="skills__img"
+                  ><img src="../img/skills/Sass.png" alt="Sass"
+                /></div>
+                <div class="skills__title">Sass/Scss</div>
+              </div>
+              <div class="skills__box">
+                <div class="skills__img"
+                  ><img src="../img/skills/WP.png" alt="WP"
+                /></div>
+                <div class="skills__title">Wordpress </div>
+              </div>
+              <div class="skills__box">
+                <div class="skills__img"
+                  ><img src="../img/skills/GULP.png" alt="GULP"
+                /></div>
+                <div class="skills__title">Gulp</div>
+              </div>
+              <div class="skills__box">
+                <div class="skills__img"
+                  ><img src="../img/skills/NPM.png" alt="NPM"
+                /></div>
+                <div class="skills__title">Npm</div>
+              </div>
+            </div>
+
+            <div class="experience__work work">
+              <div class="work__box">
+                <div class="work__position">Dancer/Team Leader</div>
+                <div class="work__company">Feb 2014 - Jan 2020</div>
+                <div class="work__descr">
+                  I did work in many cities in China
+                </div>
+              </div>
+              <div class="work__box">
+                <div class="work__position">Front-end developer</div>
+                <div class="work__company">Apr 2021 - Mar 2022 </div>
+                <div class="work__descr">
+                  <p>- Created sites based on Photoshop/Figma layouts.</p>
+                  <p>- Adding Wordpress admin panels.</p>
+                  <p>- Administration of sites on Opencart.</p>
+                  <p>- Technical support of the sales department.</p>
+                </div>
+              </div>
+              <div class="work__box">
+                <div class="work__position">Soldier</div>
+                <div class="work__company">Jun 2022 - Now</div>
+                <div class="work__descr">Damn rus*ian!!!</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="contacts">
+          <div class="contacts__container">
+            <div class="contacts__left">
+              <h2 class="title contacts__title"> contacts me: </h2>
+            </div>
+
+            <div class="contacts__form">
+              <form>
+                <input name="username" type="text" placeholder="Your Name" />
+                <input name="usermail" type="email" placeholder="E-mail" />
+                <input name="usernumb" type="tel" placeholder="Tel" />
+                <textarea name="textarea" placeholder="Message"></textarea>
+
+                <input type="submit" />
+              </form>
+            </div>
+          </div>
+        </section>
       </main>
       @@include('html/_footer.htm',{})
     </div>

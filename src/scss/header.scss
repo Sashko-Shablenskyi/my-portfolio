@@ -1,15 +1,21 @@
+//========================================================================================================================================================
+// HEADER
+
 .header {
   position: fixed;
   top: rem(16);
   width: 100%;
+  z-index: 10;
 
-  .lock & {
-    width: calc(100% - 17px);
+  @media (any-hover: hover) {
+    .lock & {
+      width: calc(100% - rem(8));
+    }
   }
 
   &--scrolled {
     top: 0;
-    padding: rem(20) 0;
+    padding: rem(15) 0;
     background-color: var(--bg-primary_70);
   }
 
@@ -17,27 +23,28 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    max-width: rem(1390);
+    max-width: rem(1565);
   }
 
   &__logo {
     font-family: 'Smooch';
-    font-size: rem(74);
-    @include adaptiveValue('padding-left', 40, 0, 0, 1440, 768);
+    @include adaptiveValue('font-size', 74, 40);
+    @include adaptiveValue('padding-left', 40, 0, 0, 1345, 768);
     color: var(--accent);
   }
 
   &__right {
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: rem(25);
     background-color: var(--primary);
     padding: rem(18) rem(40) rem(18) rem(87);
     border-top-right-radius: rem(40);
     border-top-left-radius: rem(100);
     transition: all 0.4s;
-    width: rem(325);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    z-index: 10;
 
     &::before {
       content: '';
@@ -64,8 +71,8 @@
   }
 }
 //====================================================================================================
+// BURGER
 
-//Burger
 .icon-menu {
   display: block;
   position: relative;
@@ -83,7 +90,7 @@
     right: 0;
     position: absolute;
     width: 100%;
-    height: rem(2);
+    height: rem(4);
     background-color: var(--text-primary);
   }
   &::before {
@@ -99,9 +106,6 @@
     span {
       width: 0;
     }
-    // &::before,
-    // &::after {
-    // }
     &::before {
       top: calc(50% - rem(1));
       transform: rotate(-45deg);
@@ -114,7 +118,7 @@
 }
 
 //========================================================================================================================================================
-// SWITCHER //
+// SWITCHER
 
 .switcher {
   position: relative;
@@ -122,6 +126,8 @@
   column-gap: rem(10);
   background-color: var(--bg-primary);
   border-radius: rem(25);
+  z-index: 5;
+
   input {
     display: none;
   }
@@ -132,7 +138,7 @@
     top: 0;
     width: rem(40);
     height: rem(40);
-    border: 1px solid var(--text-primary);
+    border: rem(2) solid var(--text-primary);
     border-radius: 50%;
     transition: all 0.5s cubic-bezier(0.7, -0.55, 0.3, 1.55) 0s;
   }
@@ -182,5 +188,109 @@
 
   #night:checked ~ .switcher__selector {
     left: calc(100% - rem(40));
+  }
+}
+
+//========================================================================================================================================================
+// MENU
+.menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  bottom: 0;
+  width: 100vw;
+  background-color: var(--bg-primary_70);
+  opacity: 0;
+  transition: all 0.3s;
+
+  .menu-open & {
+    opacity: 1;
+    right: 0;
+  }
+
+  &__body {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: var(--primary);
+    transition: all 0.3s;
+    overflow: hidden;
+    border-top-left-radius: rem(40);
+    border-bottom-left-radius: rem(40);
+  }
+
+  &__list {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: rem(35);
+    font-size: rem(0);
+    font-weight: 600;
+    height: 0;
+    width: 0;
+    transition: all 0.3s cubic-bezier(0.55, 0.06, 0.68, 0.19);
+
+    .menu-open & {
+      height: 100vh;
+      width: 45vw;
+      font-size: rem(32);
+    }
+
+    @media (max-width: $mobile) {
+      .menu-open & {
+        width: 75vw;
+      }
+    }
+
+    @media (max-width: $mobileSmall) {
+      .menu-open & {
+        width: 95vw;
+      }
+    }
+  }
+
+  &__item {
+    &::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%) scale(3);
+      z-index: 1;
+      letter-spacing: 3em;
+      transition: all 0.3s;
+      color: var(--bg-primary);
+      opacity: 0;
+    }
+
+    @media (any-hover: hover) {
+      &:hover {
+        &::before {
+          content: attr(data-name);
+          letter-spacing: normal;
+          opacity: 0.4;
+          width: auto;
+          font-size: rem(32);
+        }
+      }
+    }
+  }
+
+  &__link {
+    position: relative;
+    transition: all 0.3s;
+    z-index: 3;
+
+    @media (any-hover: hover) {
+      &:hover {
+        background-color: var(--text-primary);
+        color: var(--bg-primary);
+        padding: rem(5) rem(25);
+        border-radius: rem(40);
+        font-size: rem(48);
+      }
+    }
   }
 }
