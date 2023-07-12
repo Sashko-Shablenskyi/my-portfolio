@@ -119,8 +119,6 @@ function renderFreelanceStatistic(result) {
     </div>
   `;
 
-  console.dir(freelancerData);
-
   statisticBody.innerHTML = template;
 }
 
@@ -154,3 +152,19 @@ function calculateSuccessfulProjects(reviewsResult) {
 
   return result.total > 0 ? (result.total / result.count) * 100 : 0;
 }
+
+//========================================================================================================================================================
+//INPUT FOCUS
+
+const form = document.querySelector('.contacts__form'),
+  fields = form.querySelectorAll('input, textarea');
+
+fields.forEach((input) => {
+  input.addEventListener('input', () => {
+    if (input.value.trim() !== '') {
+      input.classList.add('has-text');
+    } else {
+      input.classList.remove('has-text');
+    }
+  });
+});

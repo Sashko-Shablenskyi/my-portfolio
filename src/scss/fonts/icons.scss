@@ -1,16 +1,29 @@
 %ic {
-	font-family: "icons";
-	font-style: normal;
-	font-weight: normal;
-	font-variant: normal;
-	text-transform: none;
-	line-height: 1;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+  font-family: 'icons';
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
-[class*="_icon-"] {
-	&:before {
-		@extend %ic;
-		display: block;
-	}
+[class*='_icon-'] {
+  &:before {
+    @extend %ic;
+    display: block;
+  }
+}
+
+._icon-telegram:before {
+  content: '\e902';
+}
+._icon-whatsapp:before {
+  content: '\e901';
+}
+._icon-signal:before {
+  content: '\e903';
+}
+._icon-instagram:before {
+  content: '\e900';
 }

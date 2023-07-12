@@ -45,8 +45,9 @@
 
   &__label {
     font-weight: 500;
-    line-height: rem(22);
+    line-height: math.div(26, 24);
     text-transform: uppercase;
+    @include adaptiveValue('font-size', 24, 18);
 
     @media (max-width: $mobileSmall) {
       text-align: center;
@@ -55,10 +56,10 @@
 
   &__title {
     font-weight: 600;
-    line-height: math.div(70, 56);
+    line-height: math.div(70, 64);
     color: var(--accent);
     text-transform: uppercase;
-    @include adaptiveValue('font-size', 56, 32);
+    @include adaptiveValue('font-size', 64, 32);
 
     span {
       color: var(--text-primary);
@@ -98,6 +99,11 @@
     @media (max-width: em(1024)) {
       align-self: center;
       height: unset;
+    }
+
+    @media (max-width: $mobile) {
+      margin-left: -200px;
+      margin-top: -50px;
     }
 
     img {
@@ -483,16 +489,182 @@
 //========================================================================================================================================================
 // CONTACT
 
-.contact {
+.contacts {
+  @include adaptiveValue('padding-bottom', 120, 60);
   &__container {
     display: flex;
     justify-content: space-between;
+    column-gap: rem(50);
+
+    @media (max-width: $mobile) {
+      flex-wrap: wrap;
+      row-gap: rem(50);
+    }
+  }
+
+  &__left {
+    max-width: rem(620);
+    min-width: 50%;
+
+    @media (max-width: $mobile) {
+      text-align: center;
+      margin: 0 auto;
+    }
+  }
+
+  &__title {
+    text-align: left;
+    color: var(--accent);
+    font-weight: 600;
+    line-height: math.div(90, 86);
+    padding-top: rem(40);
+
+    @include adaptiveValue('font-size', 86, 40, 0, 1345, 768);
+
+    @media (max-width: $mobile) {
+      text-align: center;
+    }
+  }
+
+  &__label {
+    color: var(--primary);
+    font-size: rem(60);
+    font-weight: 600;
+
+    @include adaptiveValue('font-size', 60, 28, 0, 1345, 768);
+    @include adaptiveValue('margin-top', 45, 20);
+  }
+
+  &__location {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: rem(20);
+    font-weight: 600;
+    line-height: math.div(26, 20);
+    column-gap: rem(50);
+    row-gap: rem(25);
+    @include adaptiveValue('margin-top', 45, 30);
+
+    @media (max-width: $tablet) {
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: $mobile) {
+      justify-content: center;
+    }
+  }
+
+  &__socials {
+    display: flex;
+    gap: rem(59);
+    color: var(--accent);
+    font-size: rem(48);
+
+    @include adaptiveValue('margin-top', 48, 35);
+    @include adaptiveValue('font-size', 48, 36);
+    @include adaptiveValue('gap', 59, 35);
+
+    @media (max-width: $mobile) {
+      justify-content: center;
+    }
+
+    &-link {
+      transition: all 0.3s;
+      @media (any-hover: hover) {
+        &:hover {
+          transform: scale(1.2);
+        }
+      }
+    }
   }
 
   &__form {
-    form {
-      display: flex;
-      flex-direction: column;
+    display: flex;
+    flex-direction: column;
+    row-gap: rem(36);
+    max-width: rem(525);
+    width: 60%;
+    height: 100%;
+
+    @media (max-width: $mobile) {
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .group {
+      position: relative;
+    }
+
+    input,
+    textarea {
+      background-color: transparent;
+      border-bottom: rem(1) solid var(--accent);
+      font-weight: 400;
+      line-height: math.div(40, 18);
+      color: var(--text-primary);
+      padding: rem(12);
+      width: 100%;
+      &::placeholder {
+        color: var(--text-primary);
+      }
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: rem(85);
+    }
+
+    input:focus,
+    textarea:focus {
+      outline: none;
+      border: none;
+    }
+
+    label {
+      position: absolute;
+      pointer-events: none;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      transition: all 0.3s ease;
+    }
+
+    input:focus ~ label,
+    textarea:focus ~ label,
+    .has-text ~ label {
+      top: rem(-10);
+      font-size: rem(16);
+      color: var(--primary);
+    }
+
+    .bar {
+      position: relative;
+      display: block;
+      &:before {
+        content: '';
+        position: absolute;
+        left: 50%;
+        bottom: rem(1);
+        height: rem(2);
+        width: 0;
+        background: var(--primary);
+        transition: all 0.3s ease;
+      }
+    }
+
+    input:focus ~ .bar:before,
+    textarea:focus ~ .bar:before {
+      width: 100%;
+      left: 0;
+    }
+
+    button {
+      margin: auto 0 0 auto;
+
+      @media (max-width: $mobile) {
+        margin: rem(40) 0 0 auto;
+      }
     }
   }
 }

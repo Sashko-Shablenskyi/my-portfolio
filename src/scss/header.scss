@@ -40,10 +40,11 @@
     justify-content: space-between;
     column-gap: rem(25);
     background-color: var(--primary);
-    padding: rem(18) rem(40) rem(18) rem(87);
+    padding: rem(18) rem(40) rem(18) rem(55);
     border-top-right-radius: rem(40);
     border-top-left-radius: rem(100);
     transition: all 0.4s;
+    min-width: rem(290);
     z-index: 10;
 
     &::before {
@@ -62,7 +63,6 @@
     &--scrolled {
       border-radius: rem(40);
       width: rem(277);
-      padding-left: rem(40);
       &::before {
         transform: skew(0deg);
         border-radius: rem(40);
