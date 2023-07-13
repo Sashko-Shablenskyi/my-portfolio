@@ -46,6 +46,8 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
     }
     /* Блок з елементами */
     .fls-preloader__body {
@@ -57,16 +59,6 @@
     /* Блок з лічильником */
     .fls-preloader__counter {
       font-size: 10rem;
-    }
-    /* Прогресбар */
-    .fls-preloader__line {
-    }
-    /* Лінія прогресбару */
-    .fls-preloader__line span {
-      display: inline-block;
-      transition: width 0.2s ease;
-      height: 0.8rem;
-      background-color: #7a956b;
     }
   </style>
   <!-- Скріпт прелоадера -->
@@ -81,7 +73,6 @@
 					<div class="fls-preloader">
 						<div class="fls-preloader__body">
 							<div class="fls-preloader__counter">0%</div>
-							<div class="fls-preloader__line"><span></span></div>
 						</div>
 					</div>`;
         document
@@ -90,7 +81,6 @@
 
         const preloader = document.querySelector('.fls-preloader'),
           showPecentLoad = document.querySelector('.fls-preloader__counter'),
-          showLineLoad = document.querySelector('.fls-preloader__line span'),
           htmlDocument = document.documentElement;
 
         let imagesLoadedCount = (counter = progress = 0);
@@ -110,7 +100,6 @@
         });
         function setValueProgress(progress) {
           showPecentLoad ? (showPecentLoad.innerText = `${progress}%`) : null;
-          showLineLoad ? (showLineLoad.style.width = `${progress}%`) : null;
         }
         showPecentLoad ? setValueProgress(progress) : null;
 
@@ -133,7 +122,7 @@
           setInterval(() => {
             preloader.remove();
             preloaderContainer.remove();
-          }, 500);
+          }, 10);
         }
       } else {
         preloaderContainer.remove();

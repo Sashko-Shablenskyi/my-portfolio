@@ -4,6 +4,13 @@ import { isMobile, menuClose } from './functions.js';
 import { flsModules } from './modules.js';
 
 //========================================================================================================================================================
+//MOBILE LOGO
+const logo = document.querySelector('.header__logo');
+const screenWidth = window.innerWidth;
+
+screenWidth < 480 ? (logo.innerHTML = 'S') : (logo.innerHTML = 'Sashko');
+
+//========================================================================================================================================================
 // scroll for header
 
 const header = document.querySelector('header'),
@@ -56,7 +63,7 @@ nightRadioButton.addEventListener('change', () => {
 //========================================================================================================================================================
 // freelancehunt
 
-const token = 'ce9e23154ce91d84a9ccb95d64c183b95c481f01',
+const token = '',
   urlProfile = `https://api.freelancehunt.com/v2/my/profile`,
   urlReviews = `https://api.freelancehunt.com/v2/freelancers/811385/reviews`;
 

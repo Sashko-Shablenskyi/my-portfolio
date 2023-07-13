@@ -12,6 +12,11 @@
 
 .intro {
   margin: rem(88) 0 0;
+
+  @media (max-width: $mobileSmall) {
+    margin: rem(85) 0 0;
+  }
+
   &__container {
     max-width: rem(1565);
   }
@@ -23,6 +28,8 @@
     border-radius: rem(40);
     border-top-right-radius: 0;
     overflow: hidden;
+    transition: all 0.3s;
+
     @include adaptiveValue('padding-right', 40, 20, 0, 1345, 1024);
     @include adaptiveValue('padding-left', 40, 20, 0, 1345, 1024);
 
@@ -30,24 +37,34 @@
       border-top-right-radius: rem(40);
     }
 
-    @media (max-width: em(1024)) {
+    @media (max-width: $mobile) {
       flex-direction: column;
+    }
+
+    @media (max-width: $mobileSmall) {
+      border-top-left-radius: 0;
+
+      &--scrolled {
+        border-top-left-radius: rem(40);
+      }
     }
   }
 
   &__left {
     display: flex;
     flex-direction: column;
-    gap: rem(5);
-    @include adaptiveValue('padding-top', 120, 100, 0, 1345, 1024);
-    @include adaptiveValue('padding-bottom', 110, 60, 0, 1345, 1024);
+    gap: rem(15);
+    z-index: 2;
+
+    @include adaptiveValue('padding-top', 120, 40, 0, 1345, 320);
+    @include adaptiveValue('padding-bottom', 110, 0, 0, 1345, 320);
   }
 
   &__label {
     font-weight: 500;
     line-height: math.div(26, 24);
     text-transform: uppercase;
-    @include adaptiveValue('font-size', 24, 18);
+    @include adaptiveValue('font-size', 24, 20);
 
     @media (max-width: $mobileSmall) {
       text-align: center;
@@ -59,7 +76,7 @@
     line-height: math.div(70, 64);
     color: var(--accent);
     text-transform: uppercase;
-    @include adaptiveValue('font-size', 64, 32);
+    @include adaptiveValue('font-size', 64, 34);
 
     span {
       color: var(--text-primary);
@@ -74,16 +91,17 @@
   &__btns {
     display: flex;
     margin-top: auto;
+    flex-wrap: wrap;
+    row-gap: rem(15);
+
     @include adaptiveValue('column-gap', 50, 15, 0, 1345, 1024);
 
-    @media (max-width: em(1024)) {
+    @media (max-width: $tablet) {
       margin-top: rem(35);
     }
 
     @media (max-width: $mobileSmall) {
-      align-items: center;
-      flex-direction: column;
-      row-gap: rem(15);
+      justify-content: center;
     }
   }
 
@@ -94,17 +112,10 @@
     align-self: flex-end;
     max-width: rem(610);
     min-width: rem(550);
-    height: rem(550);
+    min-height: rem(550);
 
-    @media (max-width: em(1024)) {
-      align-self: center;
-      height: unset;
-    }
-
-    @media (max-width: $mobile) {
-      margin-left: -200px;
-      margin-top: -50px;
-    }
+    @include adaptiveValue('margin-left', 0, -160, 0, 992, 768);
+    @include adaptiveValue('margin-right', 0, -20, 0, 768, 320);
 
     img {
       width: 100%;
@@ -344,7 +355,7 @@
     gap: rem(25);
     color: var(--primary);
     text-align: center;
-    font-size: rem(68);
+    font-size: rem(74);
     font-weight: 600;
     line-height: math.div(70, 68);
     margin: rem(46) rem(0);
@@ -432,6 +443,21 @@
     }
   }
 
+  &__work {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: rem(25);
+
+    @media (max-width: $mobile) {
+      grid-template-columns: repeat(2, 1fr);
+      row-gap: rem(55);
+    }
+
+    @media (max-width: $mobileSmall) {
+      grid-template-columns: 1fr;
+    }
+  }
+
   .skills {
     &__box {
       display: flex;
@@ -451,14 +477,12 @@
   }
 
   .work {
-    display: flex;
-    justify-content: space-between;
-    gap: rem(25);
     &__box {
       position: relative;
       background-color: var(--primary);
       border-radius: rem(10);
       border-top-left-radius: 0;
+      color: var(--text-primary);
       @include adaptiveValue('padding-top', 50, 25, 0, 1345, 991);
       @include adaptiveValue('padding-right', 50, 25, 0, 1345, 991);
       @include adaptiveValue('padding-bottom', 50, 25, 0, 1345, 991);
@@ -466,7 +490,9 @@
 
       &:nth-child(even) {
         background-color: var(--primary_dark);
-        &::before {
+
+        &::before,
+        &::after {
           background-color: var(--primary_dark);
         }
       }
@@ -482,6 +508,42 @@
         border-top-left-radius: rem(10);
         border-top-right-radius: rem(10);
       }
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: rem(-29);
+        left: 27%;
+        background-color: var(--primary);
+        height: rem(30);
+        width: rem(70);
+        transform: skew(40deg);
+        border-top-right-radius: rem(10);
+        transition: all 0.4s;
+      }
+    }
+
+    &__position {
+      color: var(--accent);
+      font-size: rem(20);
+      font-weight: 600;
+      line-height: math.div(24, 20);
+      text-transform: uppercase;
+    }
+
+    &__company {
+      font-size: rem(16);
+      font-weight: 500;
+      line-height: math.div(20, 16);
+      margin: rem(15) rem(0) rem(25);
+    }
+
+    &__descr {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-size: rem(14);
+      font-weight: 400;
+      line-height: math.div(24, 14);
     }
   }
 }

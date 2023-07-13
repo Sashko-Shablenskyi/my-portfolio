@@ -17,20 +17,43 @@
     top: 0;
     padding: rem(15) 0;
     background-color: var(--bg-primary_70);
+
+    @media (max-width: $mobileSmall) {
+      padding: rem(5) 0;
+
+      .header__inner {
+        border-radius: rem(40);
+      }
+    }
   }
 
   &__container {
+    max-width: rem(1565);
+  }
+
+  &__inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    max-width: rem(1565);
+    transition: all 0.3s;
+
+    @media (max-width: $mobileSmall) {
+      background-color: var(--primary);
+      border-top-left-radius: rem(40);
+      border-top-right-radius: rem(40);
+    }
   }
 
   &__logo {
     font-family: 'Smooch';
     @include adaptiveValue('font-size', 74, 40);
-    @include adaptiveValue('padding-left', 40, 0, 0, 1345, 768);
+    @include adaptiveValue('padding-left', 40, 20, 0, 768, 400);
     color: var(--accent);
+
+    @media (max-width: $mobileSmall) {
+      font-size: rem(60);
+      z-index: 10;
+    }
   }
 
   &__right {
@@ -44,8 +67,13 @@
     border-top-right-radius: rem(40);
     border-top-left-radius: rem(100);
     transition: all 0.4s;
-    min-width: rem(290);
+    width: rem(290);
     z-index: 10;
+
+    @media (max-width: $mobileSmall) {
+      width: unset;
+      padding: rem(18) rem(20);
+    }
 
     &::before {
       content: '';
@@ -58,14 +86,25 @@
       transform: skew(-45deg);
       border-top-left-radius: rem(15);
       transition: all 0.4s;
+
+      @media (max-width: $mobileSmall) {
+        display: none;
+      }
     }
 
     &--scrolled {
       border-radius: rem(40);
-      width: rem(277);
+      width: rem(275);
+      padding-left: rem(40);
       &::before {
         transform: skew(0deg);
         border-radius: rem(40);
+      }
+
+      @media (max-width: $mobileSmall) {
+        // border-radius: unset;
+        padding: rem(18) rem(20);
+        width: unset;
       }
     }
   }
@@ -90,7 +129,7 @@
     right: 0;
     position: absolute;
     width: 100%;
-    height: rem(4);
+    height: rem(5);
     background-color: var(--text-primary);
   }
   &::before {
@@ -100,18 +139,19 @@
     bottom: 0;
   }
   span {
-    top: calc(50% - rem(1));
+    top: 50%;
+    transform: translateY(-50%);
   }
   .menu-open & {
     span {
       width: 0;
     }
     &::before {
-      top: calc(50% - rem(1));
+      top: calc(50% - rem(3));
       transform: rotate(-45deg);
     }
     &::after {
-      bottom: calc(50% - rem(1));
+      bottom: calc(50% - rem(3));
       transform: rotate(45deg);
     }
   }
@@ -246,7 +286,7 @@
 
     @media (max-width: $mobileSmall) {
       .menu-open & {
-        width: 95vw;
+        width: 100vw;
       }
     }
   }
