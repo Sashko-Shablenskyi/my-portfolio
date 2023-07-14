@@ -34,30 +34,10 @@ window.addEventListener('scroll', () => {
 //========================================================================================================================================================
 //close meny by click on wrapper
 
-const menuWrapper = document.querySelector('.menu');
+const menuBG = document.querySelector('.menu__bg');
 
-menuWrapper.addEventListener('click', (e) => {
-  e.target.className == 'header__menu menu' ? menuClose() : null;
-});
-
-//========================================================================================================================================================
-// swap day-night
-
-const dayRadioButton = document.getElementById('day'),
-  nightRadioButton = document.getElementById('night');
-
-dayRadioButton.addEventListener('change', () => {
-  document.documentElement.style.setProperty('--bg-primary', '#ddd');
-  document.documentElement.style.setProperty('--bg-primary_70', '#ddddddb3');
-  document.documentElement.style.setProperty('--text-primary', '#000');
-  document.documentElement.style.setProperty('--text-inverse', '#ffffff');
-});
-
-nightRadioButton.addEventListener('change', () => {
-  document.documentElement.style.setProperty('--bg-primary', '#1f1f1f');
-  document.documentElement.style.setProperty('--bg-primary_70', '#1f1f1fb3');
-  document.documentElement.style.setProperty('--text-primary', '#ddd');
-  document.documentElement.style.setProperty('--text-inverse', '#151515');
+menuBG.addEventListener('click', () => {
+  menuClose();
 });
 
 //========================================================================================================================================================
@@ -121,9 +101,10 @@ function renderFreelanceStatistic(result) {
       <div class="box__title">Rating</div>
     </div>
      <div class="statistic__box box">
-      <div class="box__value">${result.positive_reviews}/${result.negative_reviews}</div>
+      <div class="box__value">${result.positive_reviews}</span>/${result.negative_reviews}</div>
       <div class="box__title">Rreviews <br> positive/negative</div>
     </div>
+    
   `;
 
   statisticBody.innerHTML = template;

@@ -35,7 +35,7 @@
 
               <div class="intro__img">
                 <img
-                  src="../img/intro/sashko_shablenskyi.png"
+                  data-src="@img/intro/sashko_shablenskyi.png"
                   alt="sashko_shablenskyi"
                 />
 
@@ -122,8 +122,42 @@
 
         <section class="about">
           <div class="about__container">
-            <div class="about__right">
-              <h2 class="title about__title"> About Me </h2>
+            <div class="about__img">
+              <img
+                data-src="@img/about/about_img.jpg"
+                alt="Sashko Shablenskyi"
+              />
+            </div>
+
+            <h2 class="title about__title"> About Me </h2>
+
+            <div class="about__descr">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Necessitatibus, blanditiis cum. Suscipit aspernatur ipsum omnis
+              voluptas earum maiores fugiat atque accusamus nesciunt! Facilis
+              soluta fugit blanditiis, labore aliquam dolores est odit itaque
+              sunt atque incidunt aut fuga repellendus minima ipsa asperiores
+              officia corrupti consequatur tempora sit? Rem ratione maiores
+              dicta!
+            </div>
+
+            <div class="about__info info folder">
+              <div class="info__box"> <span>Birthday:</span> 21.10.1994 </div>
+              <div class="info__box">
+                <span>Phone:</span>
+                <a href="tel:+380683551885">+38 (068) 355 188 5</a>
+              </div>
+              <div class="info__box">
+                <span>Location:</span>
+                <a
+                  href="https://www.google.com/maps/place/%D0%94%D1%80%D0%BE%D0%B3%D0%BE%D0%B1%D0%B8%D1%87,+%D0%9B%D1%8C%D0%B2%D1%96%D0%B2%D1%81%D1%8C%D0%BA%D0%B0+%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D1%8C,+%D0%A3%D0%BA%D1%80%D0%B0%D1%97%D0%BD%D0%B0,+82100/@49.3522225,23.5103715,13z/data=!3m1!4b1!4m6!3m5!1s0x473a4ea312a96935:0x9a7037350ab28ee5!8m2!3d49.3580116!4d23.5123193!16zL20vMDJrNnN6?entry=ttu"
+                  >Drohobych, Ukraine</a
+                >
+              </div>
+              <div class="info__box">
+                <span>E-mail:</span>
+                <a href="mailto:sashkoace@gmail.com">sashkoace@gmail.com</a>
+              </div>
             </div>
           </div>
         </section>
@@ -139,8 +173,7 @@
                   href="#"
                   target="_blank"
                   style="
-                    background: url('../img/portfolio/Rectangle.jpg') center
-                      center/cover no-repeat;
+                    background-image: url('../img/portfolio/Rectangle.jpg');
                   "
                 >
                   <div class="project__hover">
@@ -156,8 +189,7 @@
                   href="#"
                   target="_blank"
                   style="
-                    background: url('../img/portfolio/Rectangle.jpg') center
-                      center/cover no-repeat;
+                    background-image: url('../img/portfolio/Rectangle.jpg');
                   "
                 >
                   <div class="project__hover">
@@ -173,8 +205,7 @@
                   href="#"
                   target="_blank"
                   style="
-                    background: url('../img/portfolio/Rectangle.jpg') center
-                      center/cover no-repeat;
+                    background-image: url('../img/portfolio/Rectangle.jpg');
                   "
                 >
                   <div class="project__hover">
@@ -190,8 +221,7 @@
                   href="#"
                   target="_blank"
                   style="
-                    background: url('../img/portfolio/Rectangle.jpg') center
-                      center/cover no-repeat;
+                    background-image: url('../img/portfolio/Rectangle.jpg');
                   "
                 >
                   <div class="project__hover">
@@ -207,8 +237,7 @@
                   href="#"
                   target="_blank"
                   style="
-                    background: url('../img/portfolio/Rectangle.jpg') center
-                      center/cover no-repeat;
+                    background-image: url('../img/portfolio/Rectangle.jpg');
                   "
                 >
                   <div class="project__hover">
@@ -224,8 +253,7 @@
                   href="#"
                   target="_blank"
                   style="
-                    background: url('../img/portfolio/Rectangle.jpg') center
-                      center/cover no-repeat;
+                    background-image: url('../img/portfolio/Rectangle.jpg');
                   "
                 >
                   <div class="project__hover">
@@ -241,8 +269,7 @@
                   href="#"
                   target="_blank"
                   style="
-                    background: url('../img/portfolio/Rectangle.jpg') center
-                      center/cover no-repeat;
+                    background-image: url('../img/portfolio/Rectangle.jpg');
                   "
                 >
                   <div class="project__hover">
@@ -286,57 +313,58 @@
             <div class="experience__skills skills">
               <div class="skills__box">
                 <div class="skills__img">
-                  <img src="../img/skills/HTML5.png" alt="HTML5" />
+                  <img data-src="@img/skills/HTML5.png" alt="HTML5" />
                 </div>
                 <div class="skills__title">HTML5</div>
               </div>
               <div class="skills__box">
-                <div class="skills__img"
-                  ><img src="../img/skills/CSS3.png" alt="CSS3"
-                /></div>
+                <div class="skills__img">
+                  <img data-src="@img/skills/CSS3.png" alt="CSS3" />
+                </div>
                 <div class="skills__title">CSS3</div>
               </div>
               <div class="skills__box">
-                <div class="skills__img"
-                  ><img src="../img/skills/JS.png" alt="JS"
-                /></div>
+                <div class="skills__img">
+                  <img data-src="@img/skills/JS.png" alt="JS" />
+                </div>
                 <div class="skills__title">JS (ES6)</div>
               </div>
               <div class="skills__box">
-                <div class="skills__img"
-                  ><img src="../img/skills/Sass.png" alt="Sass"
-                /></div>
+                <div class="skills__img">
+                  <img data-src="@img/skills/Sass.png" alt="Sass" />
+                </div>
                 <div class="skills__title">Sass/Scss</div>
               </div>
               <div class="skills__box">
-                <div class="skills__img"
-                  ><img src="../img/skills/WP.png" alt="WP"
-                /></div>
+                <div class="skills__img">
+                  <img data-src="@img/skills/WP.png" alt="WP" />
+                </div>
                 <div class="skills__title">Wordpress </div>
               </div>
               <div class="skills__box">
-                <div class="skills__img"
-                  ><img src="../img/skills/GULP.png" alt="GULP"
-                /></div>
+                <div class="skills__img">
+                  <img data-src="@img/skills/GULP.png" alt="GULP" />
+                </div>
                 <div class="skills__title">Gulp</div>
               </div>
               <div class="skills__box">
-                <div class="skills__img"
-                  ><img src="../img/skills/NPM.png" alt="NPM"
-                /></div>
+                <div class="skills__img">
+                  <img data-src="@img/skills/NPM.png" alt="NPM" />
+                </div>
                 <div class="skills__title">Npm</div>
               </div>
             </div>
 
             <div class="experience__work work">
-              <div class="work__box">
-                <div class="work__position">Dancer/Team Leader</div>
-                <div class="work__company">Feb 2014 - Jan 2020</div>
+              <div class="work__box folder">
+                <div class="work__position">Soldier</div>
+                <div class="work__company">Jun 2022 - Now</div>
                 <div class="work__descr">
-                  <p>- I did work in many cities in China</p>
+                  <p>- Damn rus*nya!!!</p>
                 </div>
               </div>
-              <div class="work__box">
+
+              <div class="work__box folder">
                 <div class="work__position">Front-end developer</div>
                 <div class="work__company">Apr 2021 - Mar 2022 </div>
                 <div class="work__descr">
@@ -346,11 +374,12 @@
                   <p>- Technical support of the sales department.</p>
                 </div>
               </div>
-              <div class="work__box">
-                <div class="work__position">Soldier</div>
-                <div class="work__company">Jun 2022 - Now</div>
+
+              <div class="work__box folder">
+                <div class="work__position">Dancer/Team Leader</div>
+                <div class="work__company">Feb 2014 - Jan 2020</div>
                 <div class="work__descr">
-                  <p>- Damn rus*nya!!!</p>
+                  <p>- I did work in many cities in China</p>
                 </div>
               </div>
             </div>
@@ -383,11 +412,7 @@
                   target="_blank"
                   href="https://t.me/sashko_shabl"
                 ></a>
-                <!-- <a
-                  class="contacts__socials-link _icon-whatsapp"
-                  target="_blank"
-                  href=""
-                ></a> -->
+
                 <a
                   class="contacts__socials-link _icon-instagram"
                   target="_blank"

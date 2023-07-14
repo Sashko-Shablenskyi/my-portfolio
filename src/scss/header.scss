@@ -49,6 +49,7 @@
     @include adaptiveValue('font-size', 74, 40);
     @include adaptiveValue('padding-left', 40, 20, 0, 768, 400);
     color: var(--accent);
+    z-index: 5;
 
     @media (max-width: $mobileSmall) {
       font-size: rem(60);
@@ -63,12 +64,11 @@
     justify-content: space-between;
     column-gap: rem(25);
     background-color: var(--primary);
-    padding: rem(18) rem(40) rem(18) rem(55);
+    padding: rem(18) rem(30) rem(18) rem(45);
     border-top-right-radius: rem(40);
     border-top-left-radius: rem(100);
     transition: all 0.4s;
     width: rem(290);
-    z-index: 10;
 
     @media (max-width: $mobileSmall) {
       width: unset;
@@ -175,58 +175,49 @@
   &__selector {
     position: absolute;
     left: 0;
-    top: 0;
+    top: 50%;
+    transform: translateY(-50%);
     width: rem(40);
-    height: rem(40);
-    border: rem(2) solid var(--text-primary);
-    border-radius: 50%;
+    height: rem(30);
+    border: rem(2) solid var(--accent);
+    border-radius: rem(2);
     transition: all 0.5s cubic-bezier(0.7, -0.55, 0.3, 1.55) 0s;
   }
 
   label {
     cursor: pointer;
-
-    &:before {
-      content: '';
-      display: block;
-      transition: all 0.5s ease 0s;
-    }
-
+    width: rem(40);
+    height: rem(40);
+    transform: scale(1.1);
     @media (any-hover: hover) {
       &:hover {
-        :before {
-          filter: brightness(1.5) drop-shadow(0px 0px 4px var(--text-primary));
-          transition: all 0.5s ease 0s;
-        }
+        filter: brightness(1.1);
+        transition: all 0.5s ease 0s;
       }
     }
 
-    &[for='day']:before {
-      width: rem(40);
-      height: rem(40);
-      background: url(../img/switcher/day.svg) center center/ auto no-repeat;
+    &[for='ua'] {
+      background: url(../img/switcher/ua.svg) center center/contain no-repeat;
     }
 
-    &[for='night']:before {
-      width: 40px;
-      height: 40px;
-      background: url(../img/switcher/night.svg) center center/ auto no-repeat;
+    &[for='usa'] {
+      background: url(../img/switcher/usa.svg) center center/contain no-repeat;
     }
   }
 
   input {
-    &:checked + label:before {
-      transform: rotate(110deg) scale(1.1);
-      filter: brightness(1.5) drop-shadow(0px 0px 2px var(--accent));
+    &:checked + label {
+      transform: scale(1);
+      filter: brightness(1.1) drop-shadow(0px 0px 2px var(--accent));
       transition: all 0.3s ease 0s;
     }
   }
 
-  #day:checked ~ .switcher__selector {
+  #ua:checked ~ .switcher__selector {
     left: 0;
   }
 
-  #night:checked ~ .switcher__selector {
+  #usa:checked ~ .switcher__selector {
     left: calc(100% - rem(40));
   }
 }
@@ -236,16 +227,19 @@
 .menu {
   position: fixed;
   top: 0;
-  right: -100%;
-  bottom: 0;
-  width: 100vw;
-  background-color: var(--bg-primary_70);
-  opacity: 0;
-  transition: all 0.3s;
+  right: 0;
 
-  .menu-open & {
-    opacity: 1;
-    right: 0;
+  &__bg {
+    position: relative;
+    background-color: var(--bg-primary_70);
+    transition: all 0.3s;
+    z-index: -10;
+
+    .menu-open & {
+      width: 100vw;
+      height: 100vh;
+      z-index: 5;
+    }
   }
 
   &__body {
@@ -257,6 +251,7 @@
     overflow: hidden;
     border-top-left-radius: rem(40);
     border-bottom-left-radius: rem(40);
+    z-index: 6;
   }
 
   &__list {
@@ -321,6 +316,8 @@
   &__link {
     position: relative;
     transition: all 0.3s;
+    padding: rem(0) rem(25);
+
     z-index: 3;
 
     @media (any-hover: hover) {

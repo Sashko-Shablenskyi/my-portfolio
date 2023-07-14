@@ -39,3 +39,36 @@
     background-image: url('../img/title_decore_dark.svg');
   }
 }
+
+//========================================================================================================================================================
+.folder {
+  position: relative;
+  background-color: var(--primary);
+  border-radius: rem(40);
+  border-top-right-radius: 0;
+  padding: rem(30) rem(20) rem(40);
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: rem(-41);
+    right: 0;
+    width: 25%;
+    height: rem(42);
+    background-color: var(--primary);
+    border-top-left-radius: rem(40);
+    border-top-right-radius: rem(40);
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: rem(-41);
+    right: 20%;
+    background-color: var(--primary);
+    height: rem(42);
+    width: rem(70);
+    transform: skew(-40deg);
+    border-top-left-radius: rem(20);
+  }
+}
