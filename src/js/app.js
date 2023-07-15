@@ -68,7 +68,7 @@ flsFunctions.menuInit();
 Документация: https://template.fls.guru/template-docs/modul-ripple-effect.html
 Сниппет (HTML):
 */
-// flsFunctions.rippleEffect();
+flsFunctions.rippleEffect();
 
 /*
 Модуль "Кастомний курсор"

@@ -20,7 +20,11 @@
                 </h1>
 
                 <div class="intro__btns">
-                  <a class="btn" href="#">Download CV</a>
+                  <a href="#" class="btn" data-ripple="once">
+                    <span class="btn__content">Download CV</span>
+                    <span class="btn__icon _icon-cloud-download"></span>
+                  </a>
+
                   <a
                     class="btn btn--transparent"
                     href="#"
@@ -124,7 +128,7 @@
           <div class="about__container">
             <div class="about__img">
               <img
-                data-src="@img/about/about_img.jpg"
+                data-src="@img/about/about_img.png"
                 alt="Sashko Shablenskyi"
               />
             </div>
@@ -298,7 +302,7 @@
           </div>
 
           <a
-            class="btn btn--inverse statistic__btn"
+            class="btn hover btn--inverse statistic__btn"
             href="https://freelancehunt.com/freelancer/sashko_sh.html"
             target="_blank"
           >
@@ -358,7 +362,14 @@
             <div class="experience__work work">
               <div class="work__box folder">
                 <div class="work__position">Soldier</div>
-                <div class="work__company">Jun 2022 - Now</div>
+                <div class="work__company"
+                  >Jun 2022 - Now,
+                  <a
+                    target="_blank"
+                    href="https://www.linkedin.com/company/armed-forces-of-ukraine/mycompany/"
+                    >AFU</a
+                  ></div
+                >
                 <div class="work__descr">
                   <p>- Damn rus*nya!!!</p>
                 </div>
@@ -366,7 +377,14 @@
 
               <div class="work__box folder">
                 <div class="work__position">Front-end developer</div>
-                <div class="work__company">Apr 2021 - Mar 2022 </div>
+                <div class="work__company"
+                  >Apr 2021 - Mar 2022,
+                  <a
+                    target="_blank"
+                    href="https://www.linkedin.com/company/westtrading/"
+                    >Westtrading</a
+                  >
+                </div>
                 <div class="work__descr">
                   <p>- Created sites based on Photoshop/Figma layouts.</p>
                   <p>- Adding Wordpress admin panels.</p>
@@ -411,13 +429,22 @@
                   class="contacts__socials-link _icon-telegram"
                   target="_blank"
                   href="https://t.me/sashko_shabl"
-                ></a>
+                >
+                </a>
 
                 <a
                   class="contacts__socials-link _icon-instagram"
                   target="_blank"
                   href="https://www.instagram.com/_sashko_sh_/"
-                ></a>
+                >
+                </a>
+
+                <a
+                  class="contacts__socials-link _icon-github"
+                  target="_blank"
+                  href="https://github.com/Sashko-Shablenskyi"
+                >
+                </a>
               </div>
             </div>
 
@@ -440,7 +467,13 @@
                 <label>Message</label>
               </div>
 
-              <button class="btn" type="submit" value="Submit">Send</button>
+              <button
+                class="btn"
+                type="submit"
+                data-ripple="once"
+                value="Submit"
+                >Send</button
+              >
             </form>
           </div>
         </section>

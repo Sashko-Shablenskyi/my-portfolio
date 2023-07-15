@@ -1,24 +1,135 @@
 // Заголовки, загальні БЕМ блоки та інше...
 .btn {
+  position: relative;
   background-color: var(--accent);
   border-radius: rem(30);
-  color: var(--primary);
+  color: var(--text-inverse);
   font-weight: 500;
   padding: rem(15) rem(20);
   width: rem(203);
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+
+  &__content {
+    position: relative;
+    right: 0;
+    transition: all 0.3s;
+    display: block;
+    text-align: left;
+  }
+
+  &__icon {
+    position: absolute;
+    top: 50%;
+    right: -50%;
+    transform: translateY(-50%);
+    transition: all 0.3s;
+    text-align: center;
+  }
+
+  @media (any-hover: hover) {
+    &:hover {
+      .btn__content {
+        right: 100%;
+      }
+
+      .btn__icon {
+        font-size: rem(28);
+        right: 0;
+        width: 100%;
+      }
+    }
+  }
 
   &--transparent {
+    position: relative;
     background-color: transparent;
     color: var(--accent);
     border: 1px solid var(--accent);
+    transition: all 0.3s;
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      clip-path: circle(0% at 50% 50%);
+      background-color: var(--accent);
+      transition: 0.4s;
+      z-index: -1;
+    }
+
+    @media (any-hover: hover) {
+      &:hover {
+        color: var(--text-inverse);
+        box-shadow: 0 0 15px var(--accent);
+
+        &::before {
+          clip-path: circle(100% at 50% 50%);
+        }
+      }
+    }
   }
 
   &--inverse {
+    position: relative;
     background-color: var(--primary);
     color: var(--accent);
+    transition: all 0.3s;
+    overflow: visible;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 100%;
+      height: rem(10);
+      width: 90%;
+      opacity: 0;
+      background: radial-gradient(
+        ellipse at center,
+        rgba(0, 0, 0, 0.35) 0%,
+        rgba(0, 0, 0, 0) 80%
+      );
+      transition: all 0.3s;
+    }
+
+    &:hover {
+      transform: translateY(-6px);
+      animation: hover 1.5s 0.3s linear infinite;
+
+      &:before {
+        opacity: 0.6;
+        transform: translateY(6px);
+        animation: shadow 1.5s 0.3s linear infinite;
+      }
+    }
+
+    @keyframes hover {
+      50% {
+        transform: translateY(-3px);
+      }
+      100% {
+        transform: translateY(-6px);
+      }
+    }
+
+    @keyframes shadow {
+      0% {
+        transform: translateY(6px);
+        opacity: 0.5;
+      }
+
+      50% {
+        transform: translateY(3px);
+        opacity: 1;
+      }
+
+      100% {
+        transform: translateY(6px);
+        opacity: 0.5;
+      }
+    }
   }
 }
 
