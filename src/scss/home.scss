@@ -1,4 +1,57 @@
 //========================================================================================================================================================
+//KEYFRAMES
+
+@keyframes rotation360 {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes zoomIn {
+  0% {
+    opacity: 0;
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+  100% {
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translateZ(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    transform: translate3d(-100%, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translateZ(0);
+  }
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translate3d(100%, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translateZ(0);
+  }
+}
+
+//========================================================================================================================================================
 // PAGE
 
 .page {
@@ -9,7 +62,6 @@
 
 //====================================================================================================
 // INTRO
-
 .intro {
   margin: rem(88) 0 0;
 
@@ -160,6 +212,11 @@
     overflow: hidden;
     border: 1px solid var(--accent);
     grid-area: 1/1/4/2;
+    opacity: 0;
+
+    &._watcher-view {
+      animation: fadeInLeft 1s linear forwards;
+    }
 
     @media (max-width: $tablet) {
       grid-area: 3/1/4/2;
@@ -170,6 +227,10 @@
       grid-area: 4/1/5/3;
       width: 70%;
       margin: rem(30) auto 0;
+
+      &._watcher-view {
+        animation: fadeInUp 1s linear forwards;
+      }
     }
 
     @media (max-width: $mobileSmall) {
@@ -180,15 +241,26 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transform: scale(1.1);
     }
   }
 
   &__title {
+    max-width: max-content;
     grid-area: 1/2/2/3;
+    opacity: 0;
+
+    &._watcher-view {
+      animation: fadeInRight 1s linear forwards;
+    }
 
     @media (max-width: $tablet) {
       grid-area: 1/1/2/3;
+    }
+
+    @media (max-width: $tablet) {
+      &._watcher-view {
+        animation: fadeInUp 1s linear forwards;
+      }
     }
   }
 
@@ -198,9 +270,17 @@
     font-weight: 500;
     line-height: math.div(40, 20);
     margin-top: rem(26);
+    opacity: 0;
+
+    &._watcher-view {
+      animation: fadeInRight 1s linear forwards;
+    }
 
     @media (max-width: $tablet) {
       grid-area: 2/1/3/3;
+      &._watcher-view {
+        animation: fadeInUp 1s linear forwards;
+      }
     }
   }
 
@@ -209,9 +289,17 @@
     grid-template-columns: repeat(2, 1fr);
     margin-top: rem(60);
     grid-area: 3/2/4/3;
+    opacity: 0;
+
+    &._watcher-view {
+      animation: fadeInRight 1s linear forwards;
+    }
 
     @media (max-width: $mobile) {
       grid-area: 3/1/4/3;
+      &._watcher-view {
+        animation: fadeInUp 1s linear forwards;
+      }
     }
 
     @media (max-width: $mobileSmall) {
@@ -222,14 +310,16 @@
   .info {
     &__box {
       display: flex;
-      flex-direction: column;
+      align-items: center;
+      flex-wrap: wrap;
       column-gap: rem(5);
       font-size: rem(17);
       font-weight: 400;
       line-height: math.div(40, 17);
-      padding: rem(17);
+      padding: rem(10) rem(17);
 
       span {
+        white-space: nowrap;
         font-weight: 600;
       }
 
@@ -274,6 +364,13 @@
 
     @media (max-width: $mobile) {
       grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  &__title {
+    opacity: 0;
+    &._watcher-view {
+      animation: fadeInUp 1s linear forwards;
     }
   }
 
@@ -374,6 +471,10 @@
 
   &__btn {
     margin: rem(55) auto 0;
+    opacity: 0;
+    &._watcher-view {
+      animation: fadeInUp 1s linear forwards;
+    }
   }
 
   .project {
@@ -383,6 +484,35 @@
     background-repeat: no-repeat;
     background-size: cover;
     transition: all 1s;
+    opacity: 0;
+    transform: scale3d(0.3, 0.3, 0.3);
+    &._watcher-view {
+      animation: zoomIn 0.7s linear forwards;
+
+      @media (min-width: $mobileSmall) {
+        &:nth-child(1) {
+          animation-delay: 0.1s;
+        }
+        &:nth-child(2) {
+          animation-delay: 0.2s;
+        }
+        &:nth-child(3) {
+          animation-delay: 0.3s;
+        }
+        &:nth-child(4) {
+          animation-delay: 0.4s;
+        }
+        &:nth-child(5) {
+          animation-delay: 0.5s;
+        }
+        &:nth-child(6) {
+          animation-delay: 0.6s;
+        }
+        &:nth-child(7) {
+          animation-delay: 0.7s;
+        }
+      }
+    }
 
     @media (any-hover: hover) {
       &:hover {
@@ -455,6 +585,14 @@
   background-color: var(--accent);
   padding: rem(65) 0;
 
+  &__title {
+    opacity: 0;
+
+    &._watcher-view {
+      animation: fadeInUp 1.3s linear forwards;
+    }
+  }
+
   &__body {
     display: flex;
     justify-content: space-between;
@@ -466,6 +604,11 @@
     font-weight: 600;
     line-height: math.div(70, 68);
     margin: rem(46) rem(0);
+    opacity: 0;
+
+    &._watcher-view {
+      animation: fadeInUp 1.3s linear forwards;
+    }
 
     @media (max-width: $tablet) {
       justify-content: center;
@@ -474,6 +617,11 @@
 
   &__btn {
     margin: 0 auto;
+    opacity: 0;
+
+    &._watcher-view {
+      animation: fadeInUp 1.3s linear forwards;
+    }
   }
 
   &__loader {
@@ -509,12 +657,6 @@
     }
   }
 
-  @keyframes rotation360 {
-    to {
-      transform: rotate(360deg);
-    }
-  }
-
   .box {
     &__title {
       display: flex;
@@ -536,6 +678,14 @@
 // EXPERIANCE
 
 .experience {
+  &__title {
+    opacity: 0;
+
+    &._watcher-view {
+      animation: fadeInUp 1.3s linear forwards;
+    }
+  }
+
   &__skills {
     display: flex;
     align-items: center;
@@ -578,6 +728,33 @@
       align-items: center;
       row-gap: rem(10);
       width: rem(100);
+      opacity: 0;
+
+      &._watcher-view {
+        animation: zoomIn 0.7s linear forwards;
+
+        &:nth-child(1) {
+          animation-delay: 0.1s;
+        }
+        &:nth-child(2) {
+          animation-delay: 0.2s;
+        }
+        &:nth-child(3) {
+          animation-delay: 0.3s;
+        }
+        &:nth-child(4) {
+          animation-delay: 0.4s;
+        }
+        &:nth-child(5) {
+          animation-delay: 0.5s;
+        }
+        &:nth-child(6) {
+          animation-delay: 0.6s;
+        }
+        &:nth-child(7) {
+          animation-delay: 0.7s;
+        }
+      }
     }
 
     &__img {
@@ -594,10 +771,23 @@
       border-radius: rem(10);
       border-top-left-radius: 0;
       color: var(--text-primary);
-      @include adaptiveValue('padding-top', 50, 25, 0, 1345, 991);
-      @include adaptiveValue('padding-right', 50, 25, 0, 1345, 991);
-      @include adaptiveValue('padding-bottom', 50, 25, 0, 1345, 991);
-      @include adaptiveValue('padding-left', 50, 25, 0, 1345, 991);
+      opacity: 0;
+      @include adaptiveValue('padding-top', 40, 25, 0, 1345, 991);
+      @include adaptiveValue('padding-right', 40, 25, 0, 1345, 991);
+      @include adaptiveValue('padding-bottom', 40, 25, 0, 1345, 991);
+      @include adaptiveValue('padding-left', 40, 25, 0, 1345, 991);
+
+      &._watcher-view {
+        &:nth-child(1) {
+          animation: fadeInLeft 0.7s linear forwards;
+        }
+        &:nth-child(2) {
+          animation: fadeInUp 0.7s linear forwards;
+        }
+        &:nth-child(3) {
+          animation: fadeInRight 0.7s linear forwards;
+        }
+      }
 
       &:nth-child(even) {
         background-color: var(--primary_dark);
@@ -740,6 +930,11 @@
     font-weight: 600;
     line-height: math.div(90, 86);
     padding-top: rem(40);
+    opacity: 0;
+
+    &._watcher-view {
+      animation: fadeInLeft 1s linear forwards;
+    }
 
     @include adaptiveValue('font-size', 86, 40, 0, 1345, 768);
 
@@ -752,28 +947,30 @@
     color: var(--primary);
     font-size: rem(60);
     font-weight: 600;
+    opacity: 0;
+
+    &._watcher-view {
+      animation: fadeInLeft 1s linear forwards;
+    }
 
     @include adaptiveValue('font-size', 60, 28, 0, 1345, 768);
     @include adaptiveValue('margin-top', 45, 20);
   }
 
-  &__location {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-size: rem(20);
+  &__tel {
+    display: block;
+    font-size: rem(24);
     font-weight: 600;
     line-height: math.div(26, 20);
-    column-gap: rem(50);
-    row-gap: rem(25);
+    opacity: 0;
     @include adaptiveValue('margin-top', 45, 30);
 
-    @media (max-width: $tablet) {
-      flex-wrap: wrap;
+    &._watcher-view {
+      animation: fadeInLeft 1s linear forwards;
     }
 
     @media (max-width: $mobile) {
-      justify-content: center;
+      text-align: center;
     }
   }
 
@@ -782,9 +979,14 @@
     gap: rem(59);
     font-size: rem(48);
     color: var(--accent);
+    opacity: 0;
     @include adaptiveValue('margin-top', 48, 35);
     @include adaptiveValue('font-size', 48, 36);
     @include adaptiveValue('gap', 59, 35);
+
+    &._watcher-view {
+      animation: fadeInLeft 1s linear forwards;
+    }
 
     @media (max-width: $mobile) {
       justify-content: center;
@@ -815,6 +1017,11 @@
 
     .group {
       position: relative;
+      opacity: 0;
+
+      &._watcher-view {
+        animation: fadeInRight 1s linear forwards;
+      }
     }
 
     input,
@@ -882,6 +1089,11 @@
 
     button {
       margin: auto 0 0 auto;
+      opacity: 0;
+
+      &._watcher-view {
+        animation: fadeInRight 1s linear forwards;
+      }
 
       @media (max-width: $mobile) {
         margin: rem(40) 0 0 auto;
