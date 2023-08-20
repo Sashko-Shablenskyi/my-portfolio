@@ -9,7 +9,7 @@
     <div class="wrapper">
       @@include('html/_header.htm',{})
       <main class="page">
-        <section class="intro">
+        <section class="intro" id="intro">
           <div class="intro__container">
             <div class="intro__inner">
               <div class="intro__left">
@@ -27,11 +27,8 @@
 
                   <a
                     class="btn btn--transparent"
-                    href="#"
+                    href="#portfolio"
                     data-ripple="once"
-                    data-goto-header
-                    data-goto-speed="750"
-                    data-goto=".portfolio"
                   >
                     Portfolio
                   </a>
@@ -67,13 +64,7 @@
                     <circle cx="88.3%" cy="35%" r="10" fill="#000" />
                   </svg>
 
-                  <a
-                    href="#"
-                    data-goto-header
-                    data-goto-speed="750"
-                    data-goto=".contacts"
-                    class="decore__circle"
-                  >
+                  <a href="#contacts" class="decore__circle">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="140"
@@ -125,7 +116,7 @@
           </div>
         </section>
 
-        <section class="about">
+        <section class="about" id="about">
           <div class="about__container">
             <div
               class="about__img"
@@ -156,13 +147,15 @@
               data-watch-root="about"
               data-watch-threshold=".3"
             >
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Necessitatibus, blanditiis cum. Suscipit aspernatur ipsum omnis
-              voluptas earum maiores fugiat atque accusamus nesciunt! Facilis
-              soluta fugit blanditiis, labore aliquam dolores est odit itaque
-              sunt atque incidunt aut fuga repellendus minima ipsa asperiores
-              officia corrupti consequatur tempora sit? Rem ratione maiores
-              dicta!
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Necessitatibus, blanditiis cum. Suscipit aspernatur ipsum omnis
+                voluptas earum maiores fugiat atque accusamus nesciunt! Facilis
+                soluta fugit blanditiis, labore aliquam dolores est odit itaque
+                sunt atque incidunt aut fuga repellendus minima ipsa asperiores
+                officia corrupti consequatur tempora sit? Rem ratione maiores
+                dicta!
+              </p>
             </div>
 
             <div
@@ -180,6 +173,7 @@
               <div class="info__box">
                 <span>Location:</span>
                 <a
+                  target="_blank"
                   href="https://www.google.com/maps/place/%D0%94%D1%80%D0%BE%D0%B3%D0%BE%D0%B1%D0%B8%D1%87,+%D0%9B%D1%8C%D0%B2%D1%96%D0%B2%D1%81%D1%8C%D0%BA%D0%B0+%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D1%8C,+%D0%A3%D0%BA%D1%80%D0%B0%D1%97%D0%BD%D0%B0,+82100/@49.3522225,23.5103715,13z/data=!3m1!4b1!4m6!3m5!1s0x473a4ea312a96935:0x9a7037350ab28ee5!8m2!3d49.3580116!4d23.5123193!16zL20vMDJrNnN6?entry=ttu"
                   >Drohobych, Ukraine</a
                 >
@@ -192,7 +186,7 @@
           </div>
         </section>
 
-        <section class="portfolio">
+        <section class="portfolio" id="portfolio">
           <div class="portfolio__container">
             <h2
               class="title portfolio__title"
@@ -343,7 +337,7 @@
           </div>
         </section>
 
-        <section class="statistic">
+        <section class="statistic" id="statistic">
           <div class="statistic__container">
             <h2
               class="title statistic__title title--inverse"
@@ -354,14 +348,51 @@
               >freelancehunt statistic</h2
             >
 
-            <div
-              class="statistic__body"
-              data-watch
-              data-watch-once
-              data-watch-root="statistic"
-              data-watch-threshold=".2"
-            >
-              <div class="statistic__loader"> </div>
+            <div class="statistic__body">
+              <div
+                class="statistic__box statistic__box--hidden box"
+                data-watch
+                data-watch-once
+                data-watch-root="statistic"
+                data-watch-threshold=".2"
+              >
+                <div class="box__value percent"></div>
+                <div class="box__title">Successful projects</div>
+              </div>
+              <div
+                class="statistic__box statistic__box--hidden box"
+                data-watch
+                data-watch-once
+                data-watch-root="statistic"
+                data-watch-threshold=".2"
+              >
+                <div class="box__value average"></div>
+                <div class="box__title">Average score</div>
+              </div>
+              <div
+                class="statistic__box statistic__box--hidden box"
+                data-watch
+                data-watch-once
+                data-watch-root="statistic"
+                data-watch-threshold=".2"
+              >
+                <div class="box__value rating"></div>
+                <div class="box__title">Rating</div>
+              </div>
+              <div
+                class="statistic__box statistic__box--hidden box"
+                data-watch
+                data-watch-once
+                data-watch-root="statistic"
+                data-watch-threshold=".2"
+              >
+                <div class="box__value reviews"></div>
+                <div class="box__title"
+                  >Reviews <br />
+                  positive/negative</div
+                >
+              </div>
+              <div class="statistic__loader"></div>
             </div>
           </div>
 
@@ -379,7 +410,7 @@
           </a>
         </section>
 
-        <section class="experience">
+        <section class="experience" id="experience">
           <div class="experience__container">
             <h2
               class="title experience__title"
@@ -517,10 +548,12 @@
                   >
                 </div>
                 <div class="work__descr">
-                  <p>- Created sites based on Photoshop/Figma layouts.</p>
-                  <p>- Adding Wordpress admin panels.</p>
-                  <p>- Administration of sites on Opencart.</p>
-                  <p>- Technical support of the sales department.</p>
+                  <ul>
+                    <li>Created sites based on Photoshop/Figma layouts.</li>
+                    <li>Adding Wordpress admin panels.</li>
+                    <li>Adding Wordpress admin panels.</li>
+                    <li>Technical support of the sales department.</li>
+                  </ul>
                 </div>
               </div>
 
@@ -541,7 +574,7 @@
           </div>
         </section>
 
-        <section class="contacts">
+        <section class="contacts" id="contacts">
           <div class="contacts__container">
             <div class="contacts__left">
               <h2
@@ -581,16 +614,15 @@
                 data-watch-threshold=".2"
               >
                 <a
+                  class="contacts__socials-link _icon-linkedin"
+                  target="_blank"
+                  href="https://www.linkedin.com/in/sashko-shablenskyi-4b76881a3/"
+                >
+                </a>
+                <a
                   class="contacts__socials-link _icon-telegram"
                   target="_blank"
                   href="https://t.me/sashko_shabl"
-                >
-                </a>
-
-                <a
-                  class="contacts__socials-link _icon-instagram"
-                  target="_blank"
-                  href="https://www.instagram.com/_sashko_sh_/"
                 >
                 </a>
 
@@ -600,57 +632,77 @@
                   href="https://github.com/Sashko-Shablenskyi"
                 >
                 </a>
+
+                <a
+                  class="contacts__socials-link _icon-instagram"
+                  target="_blank"
+                  href="https://www.instagram.com/_sashko_sh_/"
+                >
+                </a>
               </div>
             </div>
 
-            <form class="contacts__form">
-              <div
-                class="group"
-                data-watch
-                data-watch-once
-                data-watch-root="contacts"
-                data-watch-threshold=".2"
-              >
-                <input name="username" type="text" required />
-                <span class="bar"></span>
-                <label>Name</label>
-              </div>
+            <form class="form">
+              <div class="form__body">
+                <div
+                  class="group"
+                  data-watch
+                  data-watch-once
+                  data-watch-root="contacts"
+                  data-watch-threshold=".2"
+                >
+                  <input name="username" type="text" required />
+                  <span class="bar"></span>
+                  <label>Name</label>
+                </div>
 
-              <div
-                class="group"
-                data-watch
-                data-watch-once
-                data-watch-root="contacts"
-                data-watch-threshold=".2"
-              >
-                <input name="userphone" type="text" required />
-                <span class="bar"></span>
-                <label>Tel</label>
-              </div>
+                <div
+                  class="group"
+                  data-watch
+                  data-watch-once
+                  data-watch-root="contacts"
+                  data-watch-threshold=".2"
+                >
+                  <input
+                    name="userphone"
+                    type="tel"
+                    required
+                    placeholder="test"
+                  />
+                  <span class="bar"></span>
+                  <label>Tel</label>
+                </div>
 
-              <div
-                class="group"
-                data-watch
-                data-watch-once
-                data-watch-root="contacts"
-                data-watch-threshold=".2"
-              >
-                <textarea name="textarea" rows="2"></textarea>
-                <span class="bar"></span>
-                <label>Message</label>
-              </div>
+                <div
+                  class="group"
+                  data-watch
+                  data-watch-once
+                  data-watch-root="contacts"
+                  data-watch-threshold=".2"
+                >
+                  <textarea
+                    name="textarea"
+                    rows="2"
+                    placeholder="test"
+                  ></textarea>
+                  <span class="bar"></span>
+                  <label>Message</label>
+                </div>
 
-              <button
-                class="btn"
-                type="submit"
-                data-ripple="once"
-                value="Submit"
-                data-watch
-                data-watch-once
-                data-watch-root="contacts"
-                data-watch-threshold=".2"
-                >Send</button
-              >
+                <button
+                  class="btn"
+                  type="submit"
+                  data-ripple="once"
+                  value="Submit"
+                  data-watch
+                  data-watch-once
+                  data-watch-root="contacts"
+                  data-watch-threshold=".2"
+                >
+                  <span class="btn__content">Send</span>
+                  <span class="btn__icon _icon-email"></span>
+                </button>
+              </div>
             </form>
           </div>
         </section>

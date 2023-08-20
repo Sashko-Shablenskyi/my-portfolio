@@ -1,89 +1,57 @@
 <header class="header">
   <div class="header__container">
     <div class="header__inner">
-      <a class="header__logo" href="#">Sashko</a>
-
-      <div class="header__right">
-        <div class="switcher">
-          <input type="radio" name="switcher-item" id="ua" />
-          <label for="ua"> </label>
-          <input type="radio" name="switcher-item" id="usa" checked />
-          <label for="usa"> </label>
-
-          <div class="switcher__selector"></div>
-        </div>
-
-        <button type="button" class="icon-menu">
-          <span></span>
-        </button>
-      </div>
+      <a class="header__logo" href="#">
+        <img src="../img/logo.svg" alt="Sashko Shablenskyi" />
+      </a>
 
       <div class="header__menu menu" id="menu">
         <div class="menu__bg"></div>
         <nav class="menu__body">
           <ul class="menu__list">
             <li class="menu__item" data-name="Intro">
-              <a
-                href="#"
-                data-goto-header
-                data-goto-speed="750"
-                data-goto=".intro"
-                class="menu__link"
-                >Intro</a
-              >
+              <a href="#intro" class="menu__link">Intro</a>
             </li>
             <li class="menu__item" data-name="About">
-              <a
-                href="#"
-                data-goto-header
-                data-goto-speed="750"
-                data-goto=".about"
-                class="menu__link"
-                >About</a
-              >
+              <a href="#about" class="menu__link">About</a>
             </li>
             <li class="menu__item" data-name="Portfolio">
-              <a
-                href="#"
-                data-goto-header
-                data-goto-speed="750"
-                data-goto=".portfolio"
-                class="menu__link"
-                >Portfolio</a
-              >
+              <a href="#portfolio" class="menu__link">Portfolio</a>
             </li>
             <li class="menu__item" data-name="Statistic">
-              <a
-                href="#"
-                data-goto-header
-                data-goto-speed="750"
-                data-goto=".statistic"
-                class="menu__link"
-                >Statistic</a
-              >
+              <a href="#statistic" class="menu__link">Statistic</a>
             </li>
             <li class="menu__item" data-name="Experience">
-              <a
-                href="#"
-                data-goto-header
-                data-goto-speed="750"
-                data-goto=".experience"
-                class="menu__link"
-                >Experience</a
-              >
+              <a href="#experience" class="menu__link">Experience</a>
             </li>
             <li class="menu__item" data-name="Contact">
-              <a
-                href="#"
-                data-goto-header
-                data-goto-speed="750"
-                data-goto=".contacts"
-                class="menu__link"
-                >Contacts</a
-              >
+              <a href="#contacts" class="menu__link">Contacts</a>
             </li>
+
+            <div class="switcher">
+              <input type="radio" name="switcher-item" id="uk" />
+              <label for="uk">
+                <a href="#">
+                  <img src="../img/switcher/ua.svg" alt="ua" />
+                </a>
+              </label>
+              <input type="radio" name="switcher-item" id="en" checked />
+              <label for="en">
+                <a href="#">
+                  <img src="../img/switcher/usa.svg" alt="usa" />
+                </a>
+              </label>
+
+              <!-- <div class="switcher__selector"></div>s -->
+            </div>
           </ul>
         </nav>
+      </div>
+
+      <div class="header__right">
+        <button type="button" class="icon-menu">
+          <span></span>
+        </button>
       </div>
     </div>
   </div>

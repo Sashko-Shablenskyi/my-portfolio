@@ -1,64 +1,113 @@
 // Підключення функціоналу "Чертоги Фрілансера"
+import Isotope from 'isotope-layout';
 import { isMobile, menuClose } from './functions.js';
 // Підключення списку активних модулів
 import { flsModules } from './modules.js';
 
 //========================================================================================================================================================
-//MOBILE LOGO
-const logo = document.querySelector('.header__logo');
-const screenWidth = window.innerWidth;
-
-screenWidth < 480 ? (logo.innerHTML = 'S') : (logo.innerHTML = 'Sashko');
-
-//========================================================================================================================================================
 // scroll for header
 
-const header = document.querySelector('header'),
-  headerRight = document.querySelector('.header__right'),
-  introInner = document.querySelector('.intro__inner');
+function scrollForBlocks() {
+  const header = document.querySelector('header'),
+    headerRight = document.querySelector('.header__right'),
+    introInner = document.querySelector('.intro__inner');
 
-window.addEventListener('scroll', () => {
-  const scrollPosition = window.scrollY;
-
-  if (scrollPosition > 0) {
-    header.classList.add('header--scrolled');
-    headerRight.classList.add('header__right--scrolled');
-    introInner.classList.add('intro__inner--scrolled');
+  if (header && headerRight && introInner) {
+    changeClassListByScroll(header, headerRight, introInner);
   } else {
-    header.classList.remove('header--scrolled');
-    headerRight.classList.remove('header__right--scrolled');
-    introInner.classList.remove('intro__inner--scrolled');
+    changeClassList(header, headerRight);
   }
-});
+}
+
+scrollForBlocks();
+
+function changeClassListByScroll(header, headerRight, introInner) {
+  window.addEventListener('scroll', () => {
+    const scrollPosition = window.scrollY;
+    if (scrollPosition > 0) {
+      header.classList.add('header--scrolled');
+      headerRight.classList.add('header__right--scrolled');
+      introInner.classList.add('intro__inner--scrolled');
+    } else {
+      header.classList.remove('header--scrolled');
+      headerRight.classList.remove('header__right--scrolled');
+      introInner.classList.remove('intro__inner--scrolled');
+    }
+  });
+}
+
+function changeClassList(header, headerRight) {
+  header.classList.add('header--scrolled');
+  headerRight.classList.add('header__right--scrolled');
+}
 
 //========================================================================================================================================================
-//close meny by click on wrapper
+//close meny by click wrapper or link
 
-const menuBG = document.querySelector('.menu__bg');
+function closeMenu() {
+  const menuBG = document.querySelector('.menu__bg');
+  const anchorLinks = document.querySelectorAll('a[href^="#"]');
 
-menuBG.addEventListener('click', () => {
-  menuClose();
-});
+  menuBG.addEventListener('click', () => {
+    menuClose();
+  });
+
+  anchorLinks.forEach((link) => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      menuClose();
+
+      const target = document.querySelector(link.getAttribute('href'));
+
+      if (target) {
+        const offset =
+          target.getBoundingClientRect().top + window.scrollY - 110;
+
+        window.scrollTo({
+          top: offset,
+          behavior: 'smooth',
+        });
+      }
+    });
+  });
+}
+
+closeMenu();
 
 //========================================================================================================================================================
 // freelancehunt
 
-const token = '',
-  urlProfile = `https://api.freelancehunt.com/v2/my/profile`,
-  urlReviews = `https://api.freelancehunt.com/v2/freelancers/811385/reviews`;
+function checkExistStatistic() {
+  const statistic = document.querySelector('.statistic');
 
-const myHeaders = new Headers();
-myHeaders.append('Authorization', `Bearer ${token}`);
+  if (statistic) {
+    const token = '08094e74cb53285ea5b784cf0045098eb901ca80',
+      urlProfile = `https://api.freelancehunt.com/v2/my/profile`,
+      urlReviews = `https://api.freelancehunt.com/v2/freelancers/811385/reviews`;
 
-const freelancerData = {};
+    const myHeaders = new Headers();
+    myHeaders.append('Authorization', `Bearer ${token}`);
 
-const requestOptions = {
-  method: 'GET',
-  headers: myHeaders,
-  redirect: 'follow',
-};
+    const freelancerData = {};
 
-async function fetchFreelancerData() {
+    const requestOptions = {
+      method: 'GET',
+      headers: myHeaders,
+      redirect: 'follow',
+    };
+
+    fetchFreelancerData(urlProfile, urlReviews, freelancerData, requestOptions);
+  }
+}
+
+checkExistStatistic();
+
+async function fetchFreelancerData(
+  urlProfile,
+  urlReviews,
+  freelancerData,
+  requestOptions
+) {
   try {
     const profileResponse = await fetch(urlProfile, requestOptions);
     const profileResult = await profileResponse.json();
@@ -82,32 +131,20 @@ async function fetchFreelancerData() {
   }
 }
 
-fetchFreelancerData();
-
 function renderFreelanceStatistic(result) {
-  const statisticBody = document.querySelector('.statistic__body');
+  const statisticBody = document.querySelector('.statistic__body'),
+    percent = statisticBody.querySelector('.percent'),
+    average = statisticBody.querySelector('.average'),
+    rating = statisticBody.querySelector('.rating'),
+    reviews = statisticBody.querySelector('.reviews');
 
-  const template = `
-    <div class="statistic__box box">
-      <div class="box__value">${result.successful_projects}%</div>
-      <div class="box__title">Successful projects</div>
-    </div>
-     <div class="statistic__box box">
-      <div class="box__value">${result.average_score}/10</div>
-      <div class="box__title">Average score</div>
-    </div>
-     <div class="statistic__box box">
-      <div class="box__value">${result.rating}</div>
-      <div class="box__title">Rating</div>
-    </div>
-     <div class="statistic__box box">
-      <div class="box__value">${result.positive_reviews}</span>/${result.negative_reviews}</div>
-      <div class="box__title">Rreviews <br> positive/negative</div>
-    </div>
-    
-  `;
+  percent.innerHTML = `${result.successful_projects}%`;
+  average.innerHTML = `${result.average_score}/10`;
+  rating.innerHTML = `${result.rating}`;
+  reviews.innerHTML = `${result.positive_reviews}/${result.negative_reviews}`;
 
-  statisticBody.innerHTML = template;
+  hideLoader();
+  showStatisticBoxes();
 }
 
 function calculateAverageScore(reviews) {
@@ -141,18 +178,95 @@ function calculateSuccessfulProjects(reviewsResult) {
   return result.total > 0 ? (result.total / result.count) * 100 : 0;
 }
 
+function hideLoader() {
+  const loader = document.querySelector('.statistic__loader');
+  loader.classList.add('statistic__loader--hidden');
+}
+
+function showStatisticBoxes() {
+  const boxes = [...document.querySelectorAll('.statistic__box')];
+
+  boxes.forEach((e) => {
+    e.classList.remove('statistic__box--hidden');
+  });
+}
+
 //========================================================================================================================================================
 //INPUT FOCUS
 
-const form = document.querySelector('.contacts__form'),
-  fields = form.querySelectorAll('input, textarea');
+function addFocusToForm() {
+  const fields = document.querySelectorAll('input, textarea');
 
-fields.forEach((input) => {
-  input.addEventListener('input', () => {
-    if (input.value.trim() !== '') {
-      input.classList.add('has-text');
-    } else {
-      input.classList.remove('has-text');
-    }
+  if (fields) {
+    fields.forEach((input) => {
+      input.addEventListener('change', () => {
+        if (input.value.trim() !== '') {
+          input.classList.add('has-text');
+        } else {
+          input.classList.remove('has-text');
+        }
+      });
+    });
+  }
+}
+
+addFocusToForm();
+
+//========================================================================================================================================================
+// MASONRY GRID
+
+function imagesInit() {
+  const images = document.querySelectorAll('.article__img');
+
+  if (images.length) {
+    images.forEach((image) => {
+      const imageItem = image.querySelector('img');
+      const padding = (imageItem.offsetHeight / imageItem.offsetWidth) * 100;
+
+      image.style.paddingBottom = `${padding}%`;
+
+      imageItem.classList.add('init');
+    });
+  }
+}
+
+imagesInit();
+
+//========================================================================================================================================================
+
+function gridInit() {
+  const items = document.querySelector('.articles__wrapper');
+
+  const itemGrid = new Isotope(items, {
+    itemSelector: '.article',
+    // percentPosition: true,
+    masonry: {
+      fitWidth: false,
+      gutter: 20,
+      // columnWidth: 20,
+    },
   });
-});
+}
+
+gridInit();
+
+//========================================================================================================================================================
+// FILTER FOR ARTICLES
+
+// const articles = document.querySelectorAll('.articles-page');
+
+// if (articles) {
+//   masonryFilter();
+// }
+
+// function masonryFilter() {
+//   document.addEventListener('click', (e) => {
+//     const targetElement = e.target;
+
+//     if (targetElement.closest('.filter__btn')) {
+//       const filterBtn = targetElement.closest('.filter__btn');
+//       const filterValue = filterBtn.dataset.filter;
+//       const filterActiveValue = document.querySelector('.filter__btn--active');
+//     }
+//   });
+// }

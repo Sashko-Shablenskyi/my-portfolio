@@ -808,9 +808,9 @@ export function customCursor(isShadowTrue) {
 // FLS (Full Logging System)
 export function FLS(message) {
   setTimeout(() => {
-    if (window.FLS) {
-      console.log(message);
-    }
+    // if (window.FLS) {
+    //   console.log(message);
+    // }
   }, 0);
 }
 // Отримати цифри з рядка

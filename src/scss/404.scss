@@ -1,0 +1,72 @@
+@keyframes eye_movement {
+  15% {
+    left: 10%;
+  }
+  40% {
+    left: 90%;
+  }
+  65% {
+    left: 50%;
+  }
+}
+
+.does-not-exist {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  row-gap: rem(25);
+  flex: 1 1 auto;
+  height: 100%;
+  width: 100%;
+  margin-top: rem(77);
+  text-align: center;
+
+  &__title {
+    @include adaptiveValue('font-size', 74, 56);
+    font-weight: bold;
+  }
+
+  &__subtitle {
+    @include adaptiveValue('font-size', 32, 28);
+  }
+
+  &__btn {
+    margin-top: rem(25);
+  }
+}
+
+.eyes {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: rem(25);
+  &__eye {
+    position: relative;
+    @include adaptiveValue('width', 150, 130);
+    background-color: #fff;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 30px;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background-color: var(--text-inverse);
+      animation: eye_movement 3s infinite;
+    }
+  }
+
+  &__left {
+    height: rem(140);
+    border-radius: 82% 27% 74% 36% / 52% 38% 74% 57%;
+  }
+
+  &__right {
+    height: rem(90);
+    border-radius: 41% 44% 35% 59% / 52% 38% 74% 57%;
+  }
+}

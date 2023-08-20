@@ -15,6 +15,9 @@
   }
 }
 
+._icon-email:before {
+  content: '\e903';
+}
 ._icon-telegram:before {
   content: '\e902';
 }
@@ -29,4 +32,7 @@
 }
 ._icon-github:before {
   content: '\eab0';
+}
+._icon-linkedin:before {
+  content: '\eac9';
 }
