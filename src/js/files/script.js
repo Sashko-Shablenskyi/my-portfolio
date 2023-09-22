@@ -213,7 +213,39 @@ function addFocusToForm() {
 addFocusToForm();
 
 //========================================================================================================================================================
-// MASONRY GRID
+// ARTICLES
+const articles = document.querySelector('.articles-page');
+
+if (articles) {
+  // filterArticles();
+  imagesInit();
+  gridInit();
+}
+
+// function filterArticles() {
+//   const filterBtns = document.querySelectorAll('.filter__btn'),
+//     articles = document.querySelectorAll('.articles__item');
+
+//   filterBtns.forEach((btn) => {
+//     btn.addEventListener('click', function () {
+//       const filterValue = btn.getAttribute('data-filter');
+
+//       articles.forEach((article) => {
+//         const articleFilter = article.getAttribute('data-filter');
+//         if (filterValue === '*' || filterValue === articleFilter) {
+//           article.classList.add('article--active');
+//         } else {
+//           article.classList.remove('article--active');
+//         }
+//       });
+
+//       filterBtns.forEach((btn) => {
+//         btn.classList.remove('filter__btn--active');
+//       });
+//       btn.classList.add('filter__btn--active');
+//     });
+//   });
+// }
 
 function imagesInit() {
   const images = document.querySelectorAll('.article__img');
@@ -221,52 +253,25 @@ function imagesInit() {
   if (images.length) {
     images.forEach((image) => {
       const imageItem = image.querySelector('img');
-      const padding = (imageItem.offsetHeight / imageItem.offsetWidth) * 100;
-
+      const padding =
+        (imageItem.offsetHeight / imageItem.offsetWidth) * 0.75 * 100;
       image.style.paddingBottom = `${padding}%`;
-
       imageItem.classList.add('init');
     });
   }
 }
 
-imagesInit();
-
-//========================================================================================================================================================
-
-function gridInit() {
-  const items = document.querySelector('.articles__wrapper');
-
-  const itemGrid = new Isotope(items, {
-    itemSelector: '.article',
-    // percentPosition: true,
+function gridInit(params) {
+  const isotope = document.querySelector('.articles__wrapper');
+  const isotopeGrid = new Isotope(isotope, {
+    itemSelector: '.articles__item',
+    layoutMode: 'masonry',
     masonry: {
-      fitWidth: false,
-      gutter: 20,
-      // columnWidth: 20,
+      columnWidth: '.articles__item',
+      gutter: 15,
     },
   });
 }
 
-gridInit();
-
 //========================================================================================================================================================
-// FILTER FOR ARTICLES
-
-// const articles = document.querySelectorAll('.articles-page');
-
-// if (articles) {
-//   masonryFilter();
-// }
-
-// function masonryFilter() {
-//   document.addEventListener('click', (e) => {
-//     const targetElement = e.target;
-
-//     if (targetElement.closest('.filter__btn')) {
-//       const filterBtn = targetElement.closest('.filter__btn');
-//       const filterValue = filterBtn.dataset.filter;
-//       const filterActiveValue = document.querySelector('.filter__btn--active');
-//     }
-//   });
-// }
+// ISOTOPE

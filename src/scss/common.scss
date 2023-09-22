@@ -98,7 +98,7 @@
   text-transform: uppercase;
   text-align: center;
   @include adaptiveValue('font-size', 40, 24);
-  line-height: math.div(70, 40);
+  line-height: 175%; /* 70/40 */
   font-weight: 600;
   padding-top: rem(20);
   background: url('../img/title_decore.svg') center top/auto no-repeat;

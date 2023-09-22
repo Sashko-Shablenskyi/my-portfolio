@@ -1,4 +1,12 @@
 //========================================================================================================================================================
+//FUNCTIONS
+@function animation-delay($index) {
+  $base-delay: 0.1s;
+  $increment: 0.2s;
+  @return $base-delay + ($index - 1) * $increment;
+}
+
+//========================================================================================================================================================
 //KEYFRAMES
 
 @keyframes rotation360 {
@@ -112,7 +120,7 @@
 
   &__label {
     font-weight: 500;
-    line-height: math.div(26, 24);
+    line-height: 108.333333%; /* 26/24 */
     text-transform: uppercase;
     @include adaptiveValue('font-size', 24, 20);
 
@@ -123,7 +131,7 @@
 
   &__title {
     font-weight: 600;
-    line-height: math.div(70, 64);
+    line-height: 109.375%; /* 70/64 */
     color: var(--accent);
     text-transform: uppercase;
     @include adaptiveValue('font-size', 64, 34);
@@ -171,7 +179,7 @@
       width: 100%;
     }
 
-    .decore {
+    .decor {
       position: absolute;
       inset: 0 0 5%;
       display: flex;
@@ -267,7 +275,7 @@
     grid-area: 2/2/3/3;
     font-size: rem(20);
     font-weight: 500;
-    line-height: math.div(40, 20);
+    line-height: 200%; /* 40/20 */
     margin-top: rem(26);
     opacity: 0;
 
@@ -314,7 +322,7 @@
       column-gap: rem(5);
       font-size: rem(17);
       font-weight: 400;
-      line-height: math.div(40, 17);
+      line-height: 235.294118%; /* 40/17 */
       padding: rem(10) rem(17);
 
       span {
@@ -494,26 +502,10 @@
       animation: zoomIn 0.7s linear forwards;
 
       @media (min-width: $mobileSmall) {
-        &:nth-child(1) {
-          animation-delay: 0.1s;
-        }
-        &:nth-child(2) {
-          animation-delay: 0.2s;
-        }
-        &:nth-child(3) {
-          animation-delay: 0.3s;
-        }
-        &:nth-child(4) {
-          animation-delay: 0.4s;
-        }
-        &:nth-child(5) {
-          animation-delay: 0.5s;
-        }
-        &:nth-child(6) {
-          animation-delay: 0.6s;
-        }
-        &:nth-child(7) {
-          animation-delay: 0.7s;
+        @for $i from 1 through 7 {
+          &:nth-child(#{$i}) {
+            animation-delay: animation-delay($i);
+          }
         }
       }
     }
@@ -576,7 +568,7 @@
     &__descr {
       font-size: rem(0);
       font-weight: 400;
-      line-height: math.div(20.5, 17);
+      line-height: 117.647059%; /* 20/17 */
       transition: all 0.3s linear;
     }
   }
@@ -605,7 +597,7 @@
     text-align: center;
     @include adaptiveValue('font-size', 74, 58);
     font-weight: 600;
-    line-height: math.div(70, 68);
+    line-height: 102.941176%; /* 70/68 */
     margin: rem(46) rem(0);
 
     @media (max-width: $tablet) {
@@ -671,17 +663,10 @@
     &._watcher-view {
       animation: zoomIn 1.3s linear forwards;
 
-      &:nth-child(1) {
-        animation-delay: 0.15s;
-      }
-      &:nth-child(2) {
-        animation-delay: 0.25s;
-      }
-      &:nth-child(3) {
-        animation-delay: 0.35s;
-      }
-      &:nth-child(4) {
-        animation-delay: 0.45s;
+      @for $i from 1 through 4 {
+        &:nth-child(#{$i}) {
+          animation-delay: animation-delay($i);
+        }
       }
     }
 
@@ -695,14 +680,14 @@
       color: var(--text-inverse);
       font-size: rem(20);
       font-weight: 500;
-      line-height: math.div(32, 20);
+      line-height: 160%; /* 32/20 */
       @include adaptiveValue('margin-top', 17, 0, 0, 1345, 480);
     }
   }
 }
 
 //========================================================================================================================================================
-// EXPERIANCE
+// EXPERIENCE
 .experience {
   &__title {
     opacity: 0;
@@ -884,14 +869,14 @@
       color: var(--accent);
       font-size: rem(20);
       font-weight: 600;
-      line-height: math.div(24, 20);
+      line-height: 120%; /* 24/20 */
       text-transform: uppercase;
     }
 
     &__company {
       font-size: rem(16);
       font-weight: 500;
-      line-height: math.div(20, 16);
+      line-height: 125%; /* 20/16 */
       margin-top: rem(15);
 
       a {
@@ -915,7 +900,7 @@
       text-overflow: ellipsis;
       font-size: rem(14);
       font-weight: 400;
-      line-height: math.div(24, 14);
+      line-height: 171.428571%; /* 24/14 */
       height: 0;
       font-size: rem(0);
       margin-top: 0;
@@ -953,7 +938,7 @@
     text-align: left;
     color: var(--accent);
     font-weight: 600;
-    line-height: math.div(90, 86);
+    line-height: 104.651163%; /* 90/86 */
     padding-top: rem(40);
     opacity: 0;
     max-width: max-content;
@@ -990,7 +975,7 @@
     max-width: max-content;
     font-size: rem(24);
     font-weight: 600;
-    line-height: math.div(26, 20);
+    line-height: 120%; /* 24/20 */
     opacity: 0;
     @include adaptiveValue('margin-top', 45, 30);
 
@@ -1088,7 +1073,7 @@
         background-color: transparent;
         border-bottom: rem(1) solid var(--accent);
         font-weight: 400;
-        line-height: math.div(40, 18);
+        line-height: 222.222222%; /* 40/18 */
         color: var(--text-primary);
         padding: rem(12);
         width: 100%;
