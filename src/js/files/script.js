@@ -81,7 +81,7 @@ function checkExistStatistic() {
   const statistic = document.querySelector('.statistic');
 
   if (statistic) {
-    const token = '08094e74cb53285ea5b784cf0045098eb901ca80',
+    const token = '',
       urlProfile = `https://api.freelancehunt.com/v2/my/profile`,
       urlReviews = `https://api.freelancehunt.com/v2/freelancers/811385/reviews`;
 
@@ -189,6 +189,33 @@ function showStatisticBoxes() {
   boxes.forEach((e) => {
     e.classList.remove('statistic__box--hidden');
   });
+}
+
+//========================================================================================================================================================
+//WORK EXPERIANCE
+
+const workBoxes = document.querySelectorAll('.work__box');
+
+if (workBoxes) {
+  openBox();
+}
+
+function openBox() {
+  workBoxes.forEach((box) => {
+    box.querySelector('.work__more').addEventListener('click', () => {
+      box.classList.contains('work__box--active')
+        ? delateClasseForWork(box)
+        : addClasseForWork(box);
+    });
+  });
+}
+
+function delateClasseForWork(box) {
+  box.classList.remove('work__box--active');
+}
+
+function addClasseForWork(box) {
+  box.classList.add('work__box--active');
 }
 
 //========================================================================================================================================================

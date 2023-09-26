@@ -19,19 +19,19 @@
   }
 
   &__item {
-    width: calc(100% / 4 - 30px);
+    width: calc(100% - 60px);
     min-width: rem(250);
 
-    @media (max-width: em(1130)) {
-      width: calc(100% / 3 - 30px);
-    }
-
-    @media (max-width: $tablet) {
+    @media (min-width: em(610)) {
       width: calc(100% / 2 - 40px);
     }
 
-    @media (max-width: em(610)) {
-      width: calc(100% - 60px);
+    @media (min-width: $tablet) {
+      width: calc(100% / 3 - 30px);
+    }
+
+    @media (min-width: em(1130)) {
+      width: calc(100% / 4 - 30px);
     }
 
     &:not(:last-child) {

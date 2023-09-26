@@ -101,15 +101,15 @@
   line-height: 175%; /* 70/40 */
   font-weight: 600;
   padding-top: rem(20);
-  background: url('../img/title_decore.svg') center top/auto no-repeat;
+  background: url('../img/title_decore.svg') center top/rem(150) no-repeat;
 
   &--inverse {
     color: var(--text-inverse);
     background-image: url('../img/title_decore_dark.svg');
   }
 
-  @media (max-width: $mobile) {
-    background-size: rem(150);
+  @media (min-width: $mobile) {
+    background-size: auto;
   }
 }
 
