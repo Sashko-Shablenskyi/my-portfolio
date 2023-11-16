@@ -1,26 +1,30 @@
 .articles {
-  margin: rem(100) 0 rem(50);
+  margin: toRem(100) 0 toRem(50);
 
   &__filter {
     display: flex;
     flex-wrap: wrap;
-    column-gap: rem(25);
-    row-gap: rem(15);
-    margin-top: rem(30);
+    column-gap: toRem(25);
+    row-gap: toRem(15);
+    margin-top: toRem(30);
   }
 
   &__wrapper {
     position: relative;
     background-color: var(--primary);
-    padding: rem(30);
-    border-radius: rem(40);
+    padding: toRem(30);
+    border-radius: toRem(40);
     border-top-left-radius: 0;
     width: auto !important;
+
+    &--rounded {
+      border-top-left-radius: toRem(40);
+    }
   }
 
   &__item {
     width: calc(100% - 60px);
-    min-width: rem(250);
+    min-width: toRem(250);
 
     @media (min-width: em(610)) {
       width: calc(100% / 2 - 40px);
@@ -35,14 +39,14 @@
     }
 
     &:not(:last-child) {
-      margin-bottom: rem(20);
+      margin-bottom: toRem(20);
     }
   }
 }
 
 .filter {
   &__btn {
-    padding: rem(15) rem(40);
+    padding: toRem(15) toRem(40);
     transition: all 0.3s;
 
     &--active {
@@ -50,10 +54,10 @@
       display: flex;
       align-items: center;
       background-color: var(--primary);
-      border-top-left-radius: rem(40);
-      padding-right: rem(50);
+      border-top-left-radius: toRem(40);
+      padding-right: toRem(50);
       border-top-right-radius: 70%;
-      margin-right: rem(15);
+      margin-right: toRem(15);
       transition: all 0.3s;
 
       &::after {
@@ -65,7 +69,7 @@
         height: 100%;
         width: 60%;
         transform: skew(40deg);
-        border-top-right-radius: rem(20);
+        border-top-right-radius: toRem(20);
         background-color: var(--primary);
         z-index: -1;
       }
@@ -82,8 +86,8 @@
 }
 
 .article {
-  border: rem(1) solid var(--accent);
-  border-radius: rem(10);
+  border: toRem(1) solid var(--accent);
+  border-radius: toRem(10);
   overflow: hidden;
   display: none;
   flex-direction: column;
@@ -95,7 +99,7 @@
   &__img {
     display: block;
     position: relative;
-    margin-bottom: rem(15);
+    margin-bottom: toRem(15);
     overflow: hidden;
 
     &:hover {
@@ -120,12 +124,12 @@
   &__body {
     display: flex;
     flex-direction: column;
-    row-gap: rem(15);
-    padding: 0 rem(10) rem(15);
+    row-gap: toRem(15);
+    padding: 0 toRem(10) toRem(15);
   }
 
   &__title {
-    font-size: rem(24);
+    font-size: toRem(24);
     line-height: 85.714286%; /* 24/28 */
 
     &-link {
@@ -147,7 +151,7 @@
         bottom: 0;
         left: 50%;
         width: 0;
-        height: rem(2);
+        height: toRem(2);
         background-color: var(--text-primary);
         transition: all 0.3s;
       }
@@ -155,7 +159,7 @@
   }
 
   &__descr {
-    font-size: rem(16);
+    font-size: toRem(16);
     line-height: 114.285714%; /* 16/14 */
     flex: 1 1 auto;
   }
@@ -164,11 +168,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: rem(15);
+    gap: toRem(15);
   }
 
   &__btn {
     max-width: max-content;
-    padding: rem(10) rem(20);
+    padding: toRem(10) toRem(20);
   }
 }

@@ -3,32 +3,32 @@
 
 .header {
   position: fixed;
-  top: rem(16);
+  top: toRem(16);
   width: 100%;
   z-index: 10;
 
   @media (any-hover: hover) {
     .lock & {
-      width: calc(100% - rem(8));
+      width: calc(100% - toRem(8));
     }
   }
 
   &--scrolled {
     top: 0;
-    padding: rem(5) 0;
+    padding: toRem(5) 0;
     background-color: var(--bg-primary_70);
 
     .header__inner {
-      border-radius: rem(20);
+      border-radius: toRem(20);
     }
 
     @media (min-width: $mobileSmall) {
-      padding: rem(15) 0;
+      padding: toRem(15) 0;
     }
   }
 
   &__container {
-    max-width: rem(1565);
+    max-width: toRem(1565);
   }
 
   &__inner {
@@ -37,8 +37,8 @@
     justify-content: space-between;
     transition: all 0.3s;
     background-color: var(--primary);
-    border-top-left-radius: rem(20);
-    border-top-right-radius: rem(20);
+    border-top-left-radius: toRem(20);
+    border-top-right-radius: toRem(20);
 
     @media (min-width: $mobileSmall) {
       background-color: transparent;
@@ -52,7 +52,7 @@
 
   &__logo {
     @include adaptiveValue('padding-left', 40, 20, 0, 768, 400);
-    max-width: rem(130);
+    max-width: toRem(130);
     z-index: 10;
 
     img {
@@ -60,7 +60,7 @@
     }
 
     @media (min-width: $mobileSmall) {
-      max-width: rem(190);
+      max-width: toRem(190);
     }
   }
 
@@ -69,22 +69,22 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    column-gap: rem(25);
+    column-gap: toRem(25);
     background-color: var(--primary);
     transition: all 0.4s;
     min-width: unset;
-    padding: rem(18) rem(20);
-    border-top-left-radius: rem(100);
-    border-top-right-radius: rem(20);
+    padding: toRem(18) toRem(20);
+    border-top-left-radius: toRem(100);
+    border-top-right-radius: toRem(20);
 
     @media (min-width: $mobileSmall) {
-      min-width: rem(250);
+      min-width: toRem(250);
     }
 
     @media (min-width: $mobile) {
-      padding: rem(18) rem(30) rem(18) rem(45);
-      min-width: rem(290);
-      border-top-right-radius: rem(40);
+      padding: toRem(18) toRem(30) toRem(18) toRem(45);
+      min-width: toRem(290);
+      border-top-right-radius: toRem(40);
     }
 
     &::before {
@@ -94,9 +94,9 @@
       left: 0;
       background-color: var(--primary);
       height: 100%;
-      width: rem(70);
+      width: toRem(70);
       transform: skew(-45deg);
-      border-top-left-radius: rem(15);
+      border-top-left-radius: toRem(15);
       transition: all 0.4s;
       display: none;
 
@@ -106,17 +106,17 @@
     }
 
     &--scrolled {
-      padding: rem(18) rem(40);
+      padding: toRem(18) toRem(40);
       min-width: unset;
-      border-radius: rem(20);
+      border-radius: toRem(20);
       &::before {
         transform: skew(0deg);
-        border-radius: rem(40);
+        border-radius: toRem(40);
       }
 
       @media (min-width: $mobileSmall) {
-        border-radius: rem(40);
-        min-width: rem(150);
+        border-radius: toRem(40);
+        min-width: toRem(150);
       }
     }
   }
@@ -127,8 +127,8 @@
 .icon-menu {
   display: block;
   position: relative;
-  width: rem(35);
-  height: rem(25);
+  width: toRem(35);
+  height: toRem(25);
   z-index: 10;
   @media (any-hover: none) {
     cursor: default;
@@ -160,7 +160,7 @@
     transition: all 0.3s ease 0s;
     right: 0;
     position: absolute;
-    height: rem(3);
+    height: toRem(3);
     background-color: var(--text-primary);
   }
   &::before {
@@ -203,11 +203,11 @@
   position: relative;
   display: flex;
   justify-content: space-between;
-  column-gap: rem(15);
+  column-gap: toRem(15);
   background-color: var(--bg-primary);
-  border-radius: rem(25);
+  border-radius: toRem(25);
   z-index: 5;
-  padding: rem(5);
+  padding: toRem(5);
 
   input {
     display: none;
@@ -218,16 +218,16 @@
   //   left: 0;
   //   top: 50%;
   //   transform: translateY(-50%);
-  //   width: rem(40);
-  //   height: rem(40);
-  //   border: rem(2) solid var(--accent);
+  //   width: toRem(40);
+  //   height: toRem(40);
+  //   border: toRem(2) solid var(--accent);
   //   border-radius: 50%;
   //   transition: all 0.5s cubic-bezier(0.7, -0.55, 0.3, 1.55) 0s;
   // }
 
   label {
-    width: rem(35);
-    height: rem(35);
+    width: toRem(35);
+    height: toRem(35);
     transform: scale(1.1);
     display: flex;
     justify-content: center;
@@ -299,8 +299,8 @@
     }
 
     @media (min-width: $mobileSmall) {
-      border-top-left-radius: rem(40);
-      border-bottom-left-radius: rem(40);
+      border-top-left-radius: toRem(40);
+      border-bottom-left-radius: toRem(40);
       .menu-open & {
         width: 75vw;
       }
@@ -319,8 +319,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    row-gap: rem(35);
-    font-size: rem(32);
+    row-gap: toRem(35);
+    font-size: toRem(32);
     font-weight: 600;
     height: 100%;
     width: 100%;
@@ -349,7 +349,7 @@
           letter-spacing: normal;
           opacity: 0.4;
           width: auto;
-          font-size: rem(32);
+          font-size: toRem(32);
           line-height: 0;
           height: 0;
         }
@@ -360,16 +360,16 @@
   &__link {
     position: relative;
     transition: all 0.3s;
-    padding: rem(0) rem(25);
+    padding: toRem(0) toRem(25);
     z-index: 3;
 
     @media (any-hover: hover) {
       &:hover {
         background-color: var(--text-primary);
         color: var(--bg-primary);
-        padding: rem(5) rem(25);
-        border-radius: rem(40);
-        font-size: rem(48);
+        padding: toRem(5) toRem(25);
+        border-radius: toRem(40);
+        font-size: toRem(48);
       }
     }
   }

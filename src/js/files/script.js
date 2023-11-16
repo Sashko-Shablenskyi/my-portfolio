@@ -192,33 +192,6 @@ function showStatisticBoxes() {
 }
 
 //========================================================================================================================================================
-//WORK EXPERIANCE
-
-const workBoxes = document.querySelectorAll('.work__box');
-
-if (workBoxes) {
-  openBox();
-}
-
-function openBox() {
-  workBoxes.forEach((box) => {
-    box.querySelector('.work__more').addEventListener('click', () => {
-      box.classList.contains('work__box--active')
-        ? delateClasseForWork(box)
-        : addClasseForWork(box);
-    });
-  });
-}
-
-function delateClasseForWork(box) {
-  box.classList.remove('work__box--active');
-}
-
-function addClasseForWork(box) {
-  box.classList.add('work__box--active');
-}
-
-//========================================================================================================================================================
 //INPUT FOCUS
 
 function addFocusToForm() {
@@ -240,39 +213,14 @@ function addFocusToForm() {
 addFocusToForm();
 
 //========================================================================================================================================================
-// ARTICLES
-const articles = document.querySelector('.articles-page');
+// ARTICLES ISOTOPE SORT + MASONRY
+const articles = document.querySelector('.articles-page'),
+  articlesWrapper = document.querySelector('.articles__wrapper');
 
 if (articles) {
-  // filterArticles();
   imagesInit();
   gridInit();
 }
-
-// function filterArticles() {
-//   const filterBtns = document.querySelectorAll('.filter__btn'),
-//     articles = document.querySelectorAll('.articles__item');
-
-//   filterBtns.forEach((btn) => {
-//     btn.addEventListener('click', function () {
-//       const filterValue = btn.getAttribute('data-filter');
-
-//       articles.forEach((article) => {
-//         const articleFilter = article.getAttribute('data-filter');
-//         if (filterValue === '*' || filterValue === articleFilter) {
-//           article.classList.add('article--active');
-//         } else {
-//           article.classList.remove('article--active');
-//         }
-//       });
-
-//       filterBtns.forEach((btn) => {
-//         btn.classList.remove('filter__btn--active');
-//       });
-//       btn.classList.add('filter__btn--active');
-//     });
-//   });
-// }
 
 function imagesInit() {
   const images = document.querySelectorAll('.article__img');
@@ -288,17 +236,33 @@ function imagesInit() {
   }
 }
 
-function gridInit(params) {
-  const isotope = document.querySelector('.articles__wrapper');
-  const isotopeGrid = new Isotope(isotope, {
-    itemSelector: '.articles__item',
-    layoutMode: 'masonry',
+function gridInit() {
+  const isotopeGrid = new Isotope(articlesWrapper, {
+    itemSelector: '[data-filter]',
     masonry: {
-      columnWidth: '.articles__item',
+      columnWidth: '[data-filter]',
       gutter: 15,
     },
   });
-}
 
-//========================================================================================================================================================
-// ISOTOPE
+  document.addEventListener('click', documentActions);
+
+  function documentActions(e) {
+    const targetElement = e.target;
+
+    if (targetElement.closest('.filter__btn')) {
+      const filterBtn = targetElement.closest('.filter__btn');
+      const filterValue = filterBtn.getAttribute('data-filter');
+      const filterActiveItem = document.querySelector('.filter__btn--active');
+
+      filterValue === '*'
+        ? isotopeGrid.arrange({ filter: `` })
+        : isotopeGrid.arrange({ filter: `[data-filter="${filterValue}"]` });
+
+      filterActiveItem.classList.remove('filter__btn--active');
+      filterBtn.classList.add('filter__btn--active');
+
+      e.preventDefault();
+    }
+  }
+}

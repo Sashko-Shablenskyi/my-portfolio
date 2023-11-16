@@ -1,12 +1,80 @@
-// Заголовки, загальні БЕМ блоки та інше...
+//========================================================================================================================================================
+//KEYFRAMES
+
+@keyframes rotation360 {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes zoomIn {
+  0% {
+    opacity: 0;
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+  100% {
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translateZ(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    transform: translate3d(-100%, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translateZ(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translate3d(100%, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translateZ(0);
+  }
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+//========================================================================================================================================================
+
 .btn {
   position: relative;
   background-color: var(--accent);
-  border-radius: rem(30);
+  border-radius: toRem(30);
   color: var(--text-inverse);
   font-weight: 500;
-  padding: rem(15) rem(20);
-  width: rem(203);
+  padding: toRem(15) toRem(20);
+  width: toRem(203);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -36,7 +104,7 @@
       }
 
       .btn__icon {
-        font-size: rem(28);
+        font-size: toRem(28);
         right: 0;
         width: 100%;
       }
@@ -100,8 +168,8 @@
   @include adaptiveValue('font-size', 40, 24);
   line-height: 175%; /* 70/40 */
   font-weight: 600;
-  padding-top: rem(20);
-  background: url('../img/title_decore.svg') center top/rem(150) no-repeat;
+  padding-top: toRem(20);
+  background: url('../img/title_decore.svg') center top/toRem(150) no-repeat;
 
   &--inverse {
     color: var(--text-inverse);
@@ -117,31 +185,31 @@
 .folder {
   position: relative;
   background-color: var(--primary);
-  border-radius: rem(40);
+  border-radius: toRem(40);
   border-top-right-radius: 0;
-  padding: rem(30) rem(20);
+  padding: toRem(30) toRem(20);
 
   &::before {
     content: '';
     position: absolute;
-    top: rem(-41);
+    top: toRem(-41);
     right: 0;
     width: 25%;
-    height: rem(42);
+    height: toRem(42);
     background-color: var(--primary);
-    border-top-left-radius: rem(40);
-    border-top-right-radius: rem(40);
+    border-top-left-radius: toRem(40);
+    border-top-right-radius: toRem(40);
   }
 
   &::after {
     content: '';
     position: absolute;
-    top: rem(-41);
+    top: toRem(-41);
     right: 20%;
     background-color: var(--primary);
-    height: rem(42);
-    width: rem(70);
+    height: toRem(42);
+    width: toRem(70);
     transform: skew(-40deg);
-    border-top-left-radius: rem(20);
+    border-top-left-radius: toRem(20);
   }
 }

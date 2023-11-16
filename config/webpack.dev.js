@@ -10,7 +10,7 @@ const builFolder = "dist";
 const rootFolder = path.basename(path.resolve());
 
 let pugPages = fs.readdirSync(srcFolder).filter(fileName => fileName.endsWith('.pug'))
-let htmlPages = [];
+let htmlPages = []
 
 if (!pugPages.length) {
 	htmlPages = [new FileIncludeWebpackPlugin({

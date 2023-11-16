@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   @@include('html/_head.htm',{ "title":"Sashko Shablenskyi" })
 
@@ -520,6 +520,7 @@
                 data-watch-once
                 data-watch-root="experience"
                 data-watch-threshold=".2"
+                data-showmore
               >
                 <div class="work__position">Soldier</div>
                 <div class="work__company">
@@ -531,10 +532,11 @@
                     >AFU</a
                   >
                 </div>
-                <button class="work__more"></button>
-                <div class="work__descr">
-                  <p>- Damn rus*nya!!!</p>
-                </div>
+                <button hidden class="work__more" data-showmore-button></button>
+
+                <ul class="work__descr" data-showmore-content="0">
+                  <li>- Damn rus*nya!!!</li>
+                </ul>
               </div>
 
               <div
@@ -543,6 +545,7 @@
                 data-watch-once
                 data-watch-root="experience"
                 data-watch-threshold=".2"
+                data-showmore
               >
                 <div class="work__position">Front-end developer</div>
                 <div class="work__company">
@@ -554,16 +557,14 @@
                     >West Trading</a
                   >
                 </div>
-                <button class="work__more"></button>
 
-                <div class="work__descr">
-                  <ul>
-                    <li>Created sites based on Photoshop/Figma layouts.</li>
-                    <li>Adding Wordpress admin panels.</li>
-                    <li>Adding Wordpress admin panels.</li>
-                    <li>Technical support of the sales department.</li>
-                  </ul>
-                </div>
+                <button hidden class="work__more" data-showmore-button></button>
+
+                <ul class="work__descr" data-showmore-content="0">
+                  <li>- Created sites based on Photoshop/Figma layouts.</li>
+                  <li>- Adding Wordpress admin panels.</li>
+                  <li>- Technical support of the sales department.</li>
+                </ul>
               </div>
 
               <div
@@ -572,14 +573,17 @@
                 data-watch-once
                 data-watch-root="experience"
                 data-watch-threshold=".2"
+                data-showmore
               >
                 <div class="work__position">Dancer/Team Leader</div>
                 <div class="work__company">Feb 2014 - Jan 2020</div>
-                <button class="work__more"></button>
 
-                <div class="work__descr">
-                  <p>- I did work in many cities in China</p>
-                </div>
+                <button hidden class="work__more" data-showmore-button>
+                </button>
+
+                <ul class="work__descr" data-showmore-content="0">
+                  <li>- I did work in many cities in China.</li>
+                </ul>
               </div>
             </div>
           </div>
