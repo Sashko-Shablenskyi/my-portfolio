@@ -12,29 +12,43 @@
   &__wrapper {
     position: relative;
     background-color: var(--primary);
-    padding: toRem(30);
-    border-radius: toRem(40);
-    border-top-left-radius: 0;
+    border-radius: toRem(20);
+    padding: toRem(10) toRem(10);
     width: auto !important;
+    transition: all 0.3s;
+
+    @media (min-width: $tablet) {
+      border-radius: toRem(40);
+      border-top-left-radius: 0;
+    }
 
     &--rounded {
-      border-top-left-radius: toRem(40);
+      @media (min-width: $tablet) {
+        border-top-left-radius: toRem(40);
+      }
+    }
+
+    @media (min-width: $mobileSmall) {
+      padding: toRem(20) toRem(20);
+    }
+
+    @media (min-width: $mobile) {
+      padding: toRem(30) toRem(30);
     }
   }
 
   &__item {
-    width: calc(100% - 60px);
-    min-width: toRem(250);
+    width: calc(100% - 20px);
 
-    @media (min-width: em(610)) {
-      width: calc(100% / 2 - 40px);
+    @media (min-width: $mobileSmall) {
+      width: calc(100% / 2 - 30px);
     }
 
-    @media (min-width: $tablet) {
+    @media (min-width: $mobile) {
       width: calc(100% / 3 - 30px);
     }
 
-    @media (min-width: em(1130)) {
+    @media (min-width: $tablet) {
       width: calc(100% / 4 - 30px);
     }
 
@@ -45,33 +59,75 @@
 }
 
 .filter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: toRem(15) 0 toRem(25);
+
+  @media (min-width: $tablet) {
+    justify-content: start;
+  }
+
+  @media (min-width: $tablet) {
+    margin: toRem(25) 0 0;
+  }
+
   &__btn {
+    position: relative;
     padding: toRem(15) toRem(40);
     transition: all 0.3s;
 
-    &--active {
-      position: relative;
-      display: flex;
-      align-items: center;
+    &::before,
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      height: 100%;
+      top: 100%;
       background-color: var(--primary);
-      border-top-left-radius: toRem(40);
-      padding-right: toRem(50);
-      border-top-right-radius: 70%;
-      margin-right: toRem(15);
       transition: all 0.3s;
+      opacity: 0;
+    }
 
+    &::after {
+      right: -5%;
+      width: 60%;
+      transform: skew(40deg);
+      border-top-right-radius: toRem(20);
+      z-index: -1;
+    }
+
+    &::before {
+      width: 60%;
+      left: 0;
+      border-top-left-radius: toRem(40);
+      z-index: -1;
+    }
+
+    &--active {
+      border-radius: toRem(40);
+      padding: toRem(15) toRem(40);
+      background-color: var(--primary);
+
+      &::before,
       &::after {
-        content: '';
-        display: block;
-        position: absolute;
-        top: 0;
-        right: -5%;
-        height: 100%;
-        width: 60%;
-        transform: skew(40deg);
-        border-top-right-radius: toRem(20);
-        background-color: var(--primary);
-        z-index: -1;
+        display: none;
+      }
+
+      @media (min-width: $tablet) {
+        position: relative;
+        border-top-left-radius: toRem(40);
+        padding-right: toRem(50);
+        border-top-right-radius: 70%;
+        transition: all 0.3s;
+        background-color: transparent;
+
+        &::before,
+        &::after {
+          display: block;
+          top: 0;
+          opacity: 1;
+        }
       }
     }
 

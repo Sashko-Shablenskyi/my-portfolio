@@ -751,6 +751,7 @@
     &__box {
       display: flex;
       flex-direction: column;
+      align-self: start;
       row-gap: toRem(15);
       border-radius: toRem(10);
       border-top-left-radius: 0;
@@ -925,11 +926,13 @@
     }
 
     &__descr {
-      li {
-        font-weight: 400;
-        font-size: toRem(14);
-        line-height: 171.428571%; /* 24/14 */
-        transition: all 0.3s;
+      ul {
+        li {
+          font-weight: 400;
+          font-size: toRem(14);
+          line-height: 171.428571%; /* 24/14 */
+          transition: all 0.3s;
+        }
       }
     }
   }
